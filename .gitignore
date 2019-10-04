@@ -1,0 +1,13 @@
+*.egg-info
+*.pyc
+*.swp
+/bin/
+/develop-eggs/
+/eggs/
+/parts/
+*.DS_Store
+*.egg
+db.sqlite3
+.idea
+dist
+django_ckeditor_5/node_modules/

@@ -1,0 +1,8 @@
+include LICENSE
+include README.rst
+recursive-include django_ckeditor_5/static *
+recursive-include django_ckeditor_5/templates *
+include package.json
+include package-lock.json
+include webpack.config.js
+include .gitignore
