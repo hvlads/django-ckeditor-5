@@ -15,7 +15,8 @@ setup(
     license='BSD License',
     description='CKEditor 5 for django.',
     long_description=README,
-    url='',
+    long_description_content_type='text/x-rst',
+    url='https://github.com/hvlads/django-ckeditor-5',
     author='Vladislav Khoboko',
     author_email='vladislah@gmail.com',
     classifiers=[

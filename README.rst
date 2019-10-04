@@ -1,6 +1,5 @@
-=====
-Django CKEditor 5
-=====
+Django CKEditor 5 
+==================
 
    CKEditor 5 for Django >= 2.0
 
@@ -84,7 +83,7 @@ Quick start
 
 
 
-4. Add to your ``models.py``:
+4. Add to your `models.py`:
 
   .. code-block:: python
 
@@ -94,15 +93,9 @@ Quick start
         
         
         class Article(models.Model):
-        
-            title=models.CharField('Title', max_length=200),
-            text=CKEditor5Field('Text', config_name='extends'),
+            title=models.CharField('Title', max_length=200)
+            text=CKEditor5Field('Text', config_name='extends')
+            
 
 
-Rebuild CKEditor:
-
-* Copy django_ckeditor_5 folder in your root project folder
-* cd django_ckeditor_5
-* npm install
-* npm run build or npm run prod
 
