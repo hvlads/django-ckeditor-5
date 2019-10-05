@@ -6,6 +6,10 @@ Django CKEditor 5
 Quick start
 -----------
 
+ .. code-block:: bash
+ 
+        pip install  git+https://github.com/hvlads/django-ckeditor-5.git
+
 1. Add "django_ckeditor_5" to your INSTALLED_APPS setting like this:
 
  .. code-block:: python
