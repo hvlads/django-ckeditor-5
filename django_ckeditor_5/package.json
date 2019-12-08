@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-alignment": "^11.2.0",
-    "@ckeditor/ckeditor5-dev-utils": "^12.0.5"
+    "@ckeditor/ckeditor5-dev-utils": "^12.0.5",
+    "@ckeditor/ckeditor5-inspector": "^1.5.0"
   }
 }

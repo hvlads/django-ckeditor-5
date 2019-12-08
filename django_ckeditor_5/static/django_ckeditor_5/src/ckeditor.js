@@ -13,7 +13,7 @@ import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
-import Image from '@ckeditor/ckeditor5-image/src/image';
+//import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
@@ -34,6 +34,8 @@ import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
+import ImageTitle from './custom_plugins/imagetitle';
+import ImageWithTitle from './custom_plugins/imagewithtitle';
 
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -49,7 +51,8 @@ ClassicEditor.builtinPlugins = [
     Strikethrough, Code, Subscript, Superscript,
     BlockQuote,
     Heading,
-    Image,
+    //Image,
+    ImageWithTitle,
     ImageCaption,
     ImageStyle,
     ImageToolbar,
@@ -67,5 +70,6 @@ ClassicEditor.builtinPlugins = [
     Table, TableToolbar, 
     Indent, IndentBlock,
     Highlight,
-    TodoList
+    TodoList,
+    ImageTitle
 ];
