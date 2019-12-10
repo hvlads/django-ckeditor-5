@@ -60,7 +60,7 @@ Quick start
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',],
             'image': {
-                'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                'toolbar': ['imageTextAlternative', 'imageTitle', '|', 'imageStyle:alignLeft', 'imageStyle:full',
                             'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
                 'styles': [
                     'full',

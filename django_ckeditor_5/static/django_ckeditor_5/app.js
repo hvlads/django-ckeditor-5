@@ -1,6 +1,8 @@
 import ClassicEditor from './src/ckeditor';
 import './src/override-django.css';
 
+let editors = [];
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -31,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //console.log(config)
         ClassicEditor.create(allEditors[i],
             config).then( editor => {
+                editors.push(editor);
             } ).catch(error => {
 
             });

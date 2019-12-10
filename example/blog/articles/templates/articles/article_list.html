@@ -1,0 +1,8 @@
+<h1>Articles</h1>
+<div style="display:flex; flex-direction: column;">
+    {% for article in object_list %}
+        <a href="{% url "article-detail" pk=article.id %}">{{ article.title }}</a>
+    {% empty %}
+        <li>No articles yet.</li>
+    {% endfor %}
+</div>

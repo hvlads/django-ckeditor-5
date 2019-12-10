@@ -1,0 +1,8 @@
+<div style="display:flex; flex-direction: column;">
+    <h1>{{ object.title}}</h1>
+    <div>
+        {% autoescape off %}
+        {{ object.text }}
+        {% endautoescape %}
+    </div>
+</div>

@@ -13,3 +13,9 @@ db.sqlite3
 django_ckeditor_5/node_modules/
 .vscode/
 build/
+example/blog/env
+example/blog/db.sqlite3
+django-ckeditor-5.iml
+example/blog/articles/migrations/*
+example/blog/static/*
+example/blog/media/*
