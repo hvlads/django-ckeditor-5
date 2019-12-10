@@ -2,9 +2,10 @@ import ClassicEditor from './src/ckeditor';
 import CKEditorInspector from '@ckeditor/ckeditor5-inspector';
 import './src/override-django.css';
 
+let editors = [];
+
 ClassicEditor
-    .create( document.querySelector( '#editor' ),
-    {
+    .create(document.querySelector('#editor'), {
         'blockToolbar': [
             'paragraph', 'heading1', 'heading2', 'heading3',
             '|',
@@ -13,13 +14,15 @@ ClassicEditor
             'blockQuote', 'imageUpload'
         ],
         'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-                    'code','subscript', 'superscript', 'highlight', '|',
-                    'bulletedList', 'numberedList', 'alignment', '|',  'blockQuote', 'imageUpload', '|',
-                    'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-                    'insertTable',],
+            'code', 'subscript', 'superscript', 'highlight', '|',
+            'bulletedList', 'numberedList', 'alignment', '|', 'blockQuote', 'imageUpload', '|',
+            'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
+            'insertTable',
+        ],
         'image': {
             'toolbar': ['imageTextAlternative', 'imageTitle', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                        'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
+                'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side', '|'
+            ],
             'styles': [
                 'full',
                 'side',
@@ -42,9 +45,9 @@ ClassicEditor
             }
         },
         'table': {
-            'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells']
         },
-        'heading' : {
+        'heading': {
             'options': [
                 { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
                 { 'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1' },
@@ -54,14 +57,15 @@ ClassicEditor
             ]
         },
         'simpleUpload': {
-            'uploadUrl': 'http://localhost:8000/', 
+            'uploadUrl': 'http://localhost:8000/',
         }
-    }
-    )
-    .then( editor => {
-        console.log( editor );
-        CKEditorInspector.attach( editor );
-    } )
-    .catch( error => {
-        console.error( error );
-    } );
+    })
+    .then(editor => {
+        console.log(editor);
+        editors.push(editor);
+        CKEditorInspector.attach(editor);
+        window.editors = editors;
+    })
+    .catch(error => {
+        console.error(error);
+    });
