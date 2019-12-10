@@ -38,4 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
     }
+    if (typeof editors === 'undefined') {
+        window.editors = editors;
+    }
 })
