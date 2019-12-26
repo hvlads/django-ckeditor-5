@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_ckeditor_5',
-    'articles'
+    's3upload',
+    'articles',
 ]
 
 MIDDLEWARE = [
@@ -120,10 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+CKEDITOR_5_UPLOAD_PATH = 'django_ckeditor_5/'
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': ['heading', '|', 'bold', 'italic', 'link',
@@ -168,3 +168,24 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
+
+# Storages
+# ------------------------------------------------------------------------------
+INSTALLED_APPS += ['storages']  # noqa F405
+AWS_QUERYSTRING_AUTH = False
+_AWS_EXPIRY = 60 * 60 * 24 * 7
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': f'max-age={_AWS_EXPIRY}, s-maxage={_AWS_EXPIRY}, must-revalidate',
+}
+
+# AWS
+# ------------------------------------------------------------------------------
+AWS_ACCESS_KEY_ID='AWS_ACCESS_KEY_ID'
+AWS_SECRET_ACCESS_KEY='AWS_SECRET_ACCESS_KEY'
+AWS_STORAGE_BUCKET_NAME = 'AWS_STORAGE_BUCKET_NAME'
+AWS_S3_REGION_NAME = 'eu-west-2'
+
+# Media
+# ------------------------------------------------------------------------------
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'

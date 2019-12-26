@@ -1,6 +1,9 @@
-asgiref==3.2.3
-Django==3.0
-django-ckeditor-5==0.0.1
-Pillow==6.2.1
-pytz==2019.3
-sqlparse==0.3.0
+wheel==0.33.6  # https://github.com/pypa/wheel
+asgiref==3.2.3  # http://github.com/django/asgiref/
+Django==3.0  # https://www.djangoproject.com/
+django-s3-upload==0.2.1  # https://github.com/yunojuno/django-s3-upload
+-e ../
+Pillow==6.2.1  # http://python-pillow.org/
+pytz==2019.3  # http://pythonhosted.org/pytz
+sqlparse==0.3.0  # https://github.com/andialbrecht/sqlparse
+django-storages[boto3]==1.8  # https://github.com/jschneier/django-storages
