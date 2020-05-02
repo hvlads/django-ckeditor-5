@@ -1,5 +1,4 @@
 import re
-import weakref
 from pathlib import Path
 from threading import Thread
 
