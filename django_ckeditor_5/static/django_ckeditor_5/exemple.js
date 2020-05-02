@@ -45,7 +45,7 @@ ClassicEditor
             }
         },
         'table': {
-            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells']
+            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
         },
         'heading': {
             'options': [
