@@ -97,7 +97,8 @@ Quick start
     
             },
             'table': {
-                'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells' ],
+                'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
+                'tableProperties', 'tableCellProperties' ],
                 'tableProperties': {
                     'borderColors': customColorPalette,
                     'backgroundColors': customColorPalette
