@@ -135,5 +135,37 @@ Quick start
             text=CKEditor5Field('Text', config_name='extends')
             
 
+Includes the following ckeditor5 plugins:
 
+            Essentials,
+            UploadAdapter,
+            Autoformat,
+            Bold,
+            Italic,
+            Underline,
+            Strikethrough, Code, Subscript, Superscript,
+            BlockQuote,
+            Heading,
+            //Image,
+            ImageWithTitle,
+            ImageCaption,
+            ImageStyle,
+            ImageToolbar,
+            ImageUpload,
+            ImageResize,
+            Link,
+            List,
+            Paragraph,
+            Alignment,
+            Font,
+            PasteFromOffice,
+            SimpleUploadAdapter,
+            MediaEmbed,
+            RemoveFormat,
+            Table, TableToolbar,
+            TableProperties, TableCellProperties,
+            Indent, IndentBlock,
+            Highlight,
+            TodoList,
+            ImageTitle
 
