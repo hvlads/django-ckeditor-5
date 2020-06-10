@@ -102,18 +102,20 @@ export default class SignEditing extends Plugin {
         conversion.for('dataDowncast').elementToElement({
             model: 'authorImage',
             view: (modelElement, viewWriter) => {
+
                 const src = modelElement.getAttribute('src')
                 const img = viewWriter.createEditableElement('img', {class: 'sign-author-img', src: src});
-                return toWidgetEditable(img, viewWriter);
+                return toWidget(img, viewWriter);
             }
         });
         conversion.for('editingDowncast').elementToElement({
             model: 'authorImage',
             view: (modelElement, viewWriter) => {
+
                 //alert( 'editingDowncast' )
                 const src = modelElement.getAttribute('src')
                 const img = viewWriter.createEditableElement('img', {class: 'sign-author-img', src: src});
-                return toWidgetEditable(img, viewWriter);
+                return toWidget(img, viewWriter);
             }
         });
 
