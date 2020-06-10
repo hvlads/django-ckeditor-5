@@ -105,7 +105,7 @@ export default class SignEditing extends Plugin {
 
                 const src = modelElement.getAttribute('src')
                 const img = viewWriter.createEditableElement('img', {class: 'sign-author-img', src: src});
-                return toWidget(img, viewWriter);
+                return img;//toWidget(img, viewWriter);
             }
         });
         conversion.for('editingDowncast').elementToElement({
@@ -115,7 +115,7 @@ export default class SignEditing extends Plugin {
                 //alert( 'editingDowncast' )
                 const src = modelElement.getAttribute('src')
                 const img = viewWriter.createEditableElement('img', {class: 'sign-author-img', src: src});
-                return toWidget(img, viewWriter);
+                return img;//toWidget(img, viewWriter);
             }
         });
 
