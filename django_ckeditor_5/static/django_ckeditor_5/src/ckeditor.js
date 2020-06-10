@@ -74,5 +74,6 @@ ClassicEditor.builtinPlugins = [
     Indent, IndentBlock,
     Highlight,
     TodoList,
-    ImageTitle
+    ImageTitle,
+    Sign	
 ];
