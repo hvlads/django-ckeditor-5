@@ -38,6 +38,7 @@ import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import ImageTitle from './custom_plugins/imagetitle';
 import ImageWithTitle from './custom_plugins/imagewithtitle';
+import Sign from "./custom_plugins/sign/sign";
 
 
 export default class ClassicEditor extends ClassicEditorBase {}
