@@ -19,3 +19,4 @@ django-ckeditor-5.iml
 example/blog/articles/migrations/*
 example/blog/static/*
 example/blog/media/*
+example/django_ckeditor_5

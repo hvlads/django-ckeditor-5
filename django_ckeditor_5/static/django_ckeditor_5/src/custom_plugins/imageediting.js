@@ -9,7 +9,7 @@ import {
 
 import { toImageWidget } from '@ckeditor/ckeditor5-image/src/image/utils';
 
-import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/imageinsertcommand';
+import ImageInsertCommand from '@ckeditor/ckeditor5-image/src/image/insertimagecommand';
 
 export default class ImageEditing extends Plugin {
 
