@@ -1,5 +1,5 @@
 asgiref==3.2.3
-Django==3.0.5
+Django==3.0.14
 django-ckeditor-5==0.0.8
 Pillow
 pytz==2019.3
