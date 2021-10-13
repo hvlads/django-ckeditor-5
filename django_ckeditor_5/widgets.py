@@ -11,7 +11,7 @@ DEFAULT_CONFIG = {
 }
 
 class CKEditor5Widget(forms.Widget):
-    template_name = 'django_ckeditor_5/widget.html'
+    template_name = getattr(settings, 'CKEDITOR_5_CUSTOM_WIDGET', 'django_ckeditor_5/widget.html')
 
     def __init__(self, config_name='default', attrs=None):
         self._config_errors = []
