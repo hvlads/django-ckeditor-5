@@ -1,8 +1,13 @@
 from pathlib import Path
 import urllib.parse
 from django.http import Http404
+from django import get_version
 from django.utils.module_loading import import_string
-from django.utils.translation import ugettext_lazy as _
+if get_version().startswith("4"):
+    from django.utils.translation import gettext_lazy as _
+else:
+    from django.utils.translation import ugettext_lazy as _
+
 from django.http import JsonResponse
 from django.conf import settings
 from .forms import UploadFileForm
