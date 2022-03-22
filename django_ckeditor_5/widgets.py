@@ -1,8 +1,12 @@
-from django import forms
+from django import forms, get_version
 from django.conf import settings
 from django.forms.renderers import get_default_renderer
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+
+if get_version() >= "4.0":
+    from django.utils.translation import gettext_lazy as _
+else:
+    from django.utils.translation import ugettext_lazy as _
 from django.forms.utils import ErrorList
 
 DEFAULT_CONFIG = {

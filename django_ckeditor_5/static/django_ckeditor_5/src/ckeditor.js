@@ -1,6 +1,4 @@
-// The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
@@ -37,13 +35,12 @@ import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
-import ImageTitle from './custom_plugins/imagetitle';
 import Sign from "./custom_plugins/sign/sign";
 
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditor extends ClassicEditorBase {
+}
 
-// Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
     Essentials,
     UploadAdapter,
@@ -75,6 +72,5 @@ ClassicEditor.builtinPlugins = [
     Indent, IndentBlock,
     Highlight,
     TodoList,
-    ImageTitle,
-    Sign	
+    Sign
 ];
