@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^33.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^29.0.2",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^29.0.2",
+    "@ckeditor/ckeditor5-dev-utils": "^30.0.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^30.0.0",
     "@ckeditor/ckeditor5-theme-lark": "^33.0.0",
     "css-loader": "5",
     "mini-css-extract-plugin": "^2.6.0",
