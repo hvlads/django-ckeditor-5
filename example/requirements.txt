@@ -1,5 +1,5 @@
 asgiref==3.3.4
-Django==3.2
+Django==3.2.12
 Pillow==8.2.0
 pytz==2019.3
 sqlparse==0.3.0
