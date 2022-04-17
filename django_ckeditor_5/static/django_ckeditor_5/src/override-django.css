@@ -1,18 +1,31 @@
 /** Todo list **/
 
-.ck .todo-list input{
-   padding:0;
+.ck .todo-list input {
+    padding: 0;
 }
-.ck .todo-list__checkmark:after{
-   height: 6px !important;
+
+.ck .todo-list__checkmark:after {
+    height: 6px !important;
 }
+
 .ck .todo-list__checkmark {
     padding: 0;
 }
+
 .ck.ck-content.ck-editor__editable {
     min-height: 300px;
 }
-.ck h2{
+
+.ck h2 {
     color: inherit;
     background: inherit;
+}
+
+form .aligned .ck ul li {
+    list-style: inherit;
+}
+
+form .aligned .ck ul {
+    margin-left: 1.5em;
+    padding-left: inherit;
 }
