@@ -7,6 +7,7 @@ class Article(models.Model):
 
     title = models.CharField("Title", max_length=200, null=True)
     text = CKEditor5Field("Text", config_name="extends")
+    text2 = CKEditor5Field("Text 2", config_name="extends", null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Articles"

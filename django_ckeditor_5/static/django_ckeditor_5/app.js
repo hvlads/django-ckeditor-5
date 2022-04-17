@@ -19,24 +19,26 @@ function getCookie(name) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let allEditors = document.querySelectorAll('.django_ckeditor_5');
+    const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
-        let script_id = `${allEditors[i].id}_script`
+        const script_id = `${allEditors[i].id}_script`
+        const upload_url = document.getElementById(
+            `ck-editor-5-upload-url-${script_id}`
+        ).getAttribute('data-upload-url');
         document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
-        let config = JSON.parse(document.getElementById(script_id).textContent);
-        
+        const config = JSON.parse(document.getElementById(script_id).textContent);
+
         config['simpleUpload'] = {
-            'uploadUrl': '/ckeditor5/image_upload/', 'headers': {
+            'uploadUrl': upload_url, 'headers': {
                 'X-CSRFToken': getCookie('csrftoken'),
             }
         }
-        //console.log(config)
         ClassicEditor.create(allEditors[i],
-            config).then( editor => {
-                editors.push(editor);        
-            } ).catch(error => {
+            config).then(editor => {
+            editors.push(editor);
+        }).catch(error => {
 
-            });
+        });
     }
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;

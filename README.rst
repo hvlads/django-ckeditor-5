@@ -85,7 +85,7 @@ Quick start
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',],
             'image': {
-                'toolbar': ['imageTextAlternative', 'imageTitle', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
                             'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
                 'styles': [
                     'full',
@@ -115,6 +115,13 @@ Quick start
                     { 'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2' },
                     { 'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3' }
                 ]
+            }
+        },
+        'list': {
+            'properties': {
+                'styles': 'true',
+                'startIndex': 'true',
+                'reversed': 'true',
             }
         }
     }
@@ -166,5 +173,5 @@ Includes the following ckeditor5 plugins:
             Indent, IndentBlock,
             Highlight,
             TodoList,
-            ImageTitle
+            ListProperties
 
