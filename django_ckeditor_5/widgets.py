@@ -1,6 +1,7 @@
 from django import forms, get_version
 from django.conf import settings
 from django.forms.renderers import get_default_renderer
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 
 if get_version() >= "4.0":
@@ -58,6 +59,7 @@ class CKEditor5Widget(forms.Widget):
 
         context["config"] = self.config
         context["script_id"] = "{}{}".format(attrs["id"], "_script")
+        context["upload_url"] = reverse("ck_editor_5_upload_file")
         if self._config_errors:
             context["errors"] = ErrorList(self._config_errors)
 

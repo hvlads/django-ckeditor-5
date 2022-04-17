@@ -188,10 +188,8 @@ CKEDITOR_5_CONFIGS = {
         "image": {
             "toolbar": [
                 "imageTextAlternative",
-                "imageTitle",
                 "|",
                 "imageStyle:alignLeft",
-                "imageStyle:full",
                 "imageStyle:alignRight",
                 "imageStyle:alignCenter",
                 "imageStyle:side",
@@ -249,5 +247,13 @@ CKEDITOR_5_CONFIGS = {
                 },
             ]
         },
+        "list": {
+            "properties": {
+                "styles": "true",
+                "startIndex": "true",
+                "reversed": "true",
+            }
+        }
+
     },
 }

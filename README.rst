@@ -85,7 +85,7 @@ Quick start
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',],
             'image': {
-                'toolbar': ['imageTextAlternative', 'imageTitle', '|', 'imageStyle:alignLeft', 'imageStyle:full',
+                'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
                             'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
                 'styles': [
                     'full',
@@ -166,5 +166,5 @@ Includes the following ckeditor5 plugins:
             Indent, IndentBlock,
             Highlight,
             TodoList,
-            ImageTitle
+            ListProperties
 

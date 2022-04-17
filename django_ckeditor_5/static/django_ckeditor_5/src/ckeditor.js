@@ -35,9 +35,7 @@ import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
-import ListStyle from '@ckeditor/ckeditor5-list/src/liststyle';
-import Sign from "./custom_plugins/sign/sign";
-
+import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -73,6 +71,5 @@ ClassicEditor.builtinPlugins = [
     Indent, IndentBlock,
     Highlight,
     TodoList,
-    ListStyle,
-    Sign
+    ListProperties
 ];
