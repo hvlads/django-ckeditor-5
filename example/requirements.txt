@@ -3,3 +3,4 @@ Django==4.0.3
 Pillow==9.0.1
 pytz==2019.3
 sqlparse==0.3.0
+django-ckeditor-5==0.0.16

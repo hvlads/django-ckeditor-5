@@ -16,7 +16,7 @@ build/
 example/blog/env
 example/blog/db.sqlite3
 django-ckeditor-5.iml
-example/blog/articles/migrations/*
 example/blog/static/*
 example/blog/media/*
 example/django_ckeditor_5
+example/blog/django_ckeditor_5
