@@ -47,6 +47,5 @@ def upload_file(request):
             return JsonResponse({"error": {"message": "{}".format(str(ex))}})
         if form.is_valid():
             url = handle_uploaded_file(request.FILES["upload"])
-            print(url)
             return JsonResponse({"url": url})
     raise Http404(_("Page not found."))
