@@ -21,3 +21,4 @@ example/blog/media/*
 example/django_ckeditor_5
 example/blog/django_ckeditor_5
 example/blog/.coverage
+example/blog/tests/.coverage
