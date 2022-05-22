@@ -4,11 +4,11 @@ from .models import Article
 
 
 class ArticleListView(ListView):
-
+    """ All articles."""
     model = Article
-    paginate_by = 100  # if pagination is desired
+    paginate_by = 100
 
 
 class ArticleDetailView(DetailView):
-
+    """ Article detail view."""
     model = Article

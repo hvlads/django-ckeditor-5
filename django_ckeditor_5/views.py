@@ -1,6 +1,3 @@
-import urllib.parse
-from pathlib import Path
-
 from django import get_version
 from django.http import Http404
 from django.utils.module_loading import import_string
@@ -36,11 +33,9 @@ def image_verify(f):
 
 
 def handle_uploaded_file(f):
-    folder = getattr(settings, "CKEDITOR_5_UPLOADS_FOLDER", "django_ckeditor_5")
-    uploads_path = Path(settings.MEDIA_ROOT, folder)
-    fs = storage(location=uploads_path)
+    fs = storage()
     filename = fs.save(f.name, f)
-    return "/".join([urllib.parse.urljoin(fs.base_url, folder), filename])
+    return fs.url(filename)
 
 
 def upload_file(request):
@@ -52,5 +47,6 @@ def upload_file(request):
             return JsonResponse({"error": {"message": "{}".format(str(ex))}})
         if form.is_valid():
             url = handle_uploaded_file(request.FILES["upload"])
+            print(url)
             return JsonResponse({"url": url})
     raise Http404(_("Page not found."))

@@ -4,3 +4,7 @@ Pillow==9.0.1
 pytz==2019.3
 sqlparse==0.3.0
 django-ckeditor-5==0.0.16
+
+pytest-django==4.5.2
+django-storages==1.12.3
+google-cloud-storage==2.3.0
