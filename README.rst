@@ -177,6 +177,7 @@ Includes the following ckeditor5 plugins:
             ListProperties
 
 Usage example a widget in a form:
+
   .. code-block:: python
 
 
