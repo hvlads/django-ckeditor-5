@@ -1,8 +1,29 @@
-<div style="display:flex; flex-direction: column;">
-    <h1>{{ object.title}}</h1>
-    <div>
-        {% autoescape off %}
-        {{ object.text }}
-        {% endautoescape %}
+{% extends 'base.html' %}
+{% block header %}
+    {{ form.media }}
+{% endblock %}
+{% block content %}
+    <div style="display:flex; flex-direction: column;">
+        <h1>{{ object.title }}</h1>
+        <div>
+            {% autoescape off %}
+                {{ object.text }}
+            {% endautoescape %}
+        </div>
+        <div style="display:flex; flex-direction: column;">
+            {% for comment in comments %}
+                <div>
+                    {{ comment.author }} <br>
+                    {% autoescape off %}
+                        {{ comment.text }}
+                    {% endautoescape %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit comment</button>
+    </form>
+{% endblock %}

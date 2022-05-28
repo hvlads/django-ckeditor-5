@@ -23,3 +23,4 @@ example/blog/django_ckeditor_5
 example/blog/.coverage
 example/blog/tests/.coverage
 example/blog/coverage.xml
+example/blog/pyproject.toml

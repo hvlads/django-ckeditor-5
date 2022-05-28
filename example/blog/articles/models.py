@@ -11,7 +11,25 @@ class Article(models.Model):
 
     class Meta:
         verbose_name_plural = "Articles"
-        verbose_name = "article"
+        verbose_name = "Article"
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    """Comment for article."""
+    author = models.CharField(max_length=250)
+    text = CKEditor5Field("Text")
+    article = models.ForeignKey(
+        Article,
+        related_name="comments",
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        verbose_name_plural = "Comments"
+        verbose_name = "Comment"
+
+    def __str__(self):
+        return self.text
