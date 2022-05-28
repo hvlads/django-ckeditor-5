@@ -176,3 +176,18 @@ Includes the following ckeditor5 plugins:
             TodoList,
             ListProperties
 
+Usage example a widget in a form:
+  .. code-block:: python
+
+
+      class CommentForm(forms.ModelForm):
+            """Form for article comments."""
+
+            class Meta:
+                model = Comment
+                fields = ("author", "text")
+                widgets = {
+                    "text": CKEditor5Widget(
+                        attrs={"class": "django_ckeditor_5"}, config_name="comment"
+                    )
+                }
