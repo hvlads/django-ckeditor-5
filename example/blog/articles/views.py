@@ -8,20 +8,22 @@ from .models import Article
 
 
 class ArticleListView(ListView):
-    """ All articles."""
+    """All articles."""
+
     model = Article
     paginate_by = 100
 
 
 class ArticleDetailView(DetailView, FormView):
-    """ Article detail view."""
+    """Article detail view."""
+
     model = Article
     form_class = CommentForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = CommentForm()
-        context['comments'] = self.get_object().comments.all()
+        context["form"] = CommentForm()
+        context["comments"] = self.get_object().comments.all()
         return context
 
     def post(self, request, *args, **kwargs):
@@ -30,5 +32,7 @@ class ArticleDetailView(DetailView, FormView):
             comment = form.save(commit=False)
             comment.article = self.get_object()
             comment.save()
-        self.success_url = reverse('article-detail', kwargs={"pk": self.get_object().id})
+        self.success_url = reverse(
+            "article-detail", kwargs={"pk": self.get_object().id}
+        )
         return super().post(request, *args, **kwargs)

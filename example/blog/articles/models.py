@@ -19,12 +19,11 @@ class Article(models.Model):
 
 class Comment(models.Model):
     """Comment for article."""
+
     author = models.CharField(max_length=250)
     text = CKEditor5Field("Text")
     article = models.ForeignKey(
-        Article,
-        related_name="comments",
-        on_delete=models.CASCADE
+        Article, related_name="comments", on_delete=models.CASCADE
     )
 
     class Meta:
