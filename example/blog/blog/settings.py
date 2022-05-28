@@ -255,3 +255,4 @@ CKEDITOR_5_CONFIGS = {
 
     },
 }
+CKEDITOR5_FILE_STORAGE = "articles.storage.CustomStorage"
