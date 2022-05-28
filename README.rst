@@ -176,7 +176,7 @@ Includes the following ckeditor5 plugins:
             TodoList,
             ListProperties
 
-Usage example a widget in a form:
+Example of using a widget in a form:
 
   .. code-block:: python
 
@@ -189,6 +189,10 @@ Usage example a widget in a form:
       class CommentForm(forms.ModelForm):
             """Form for article comments."""
 
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, **kwargs)
+                self.fields["text"].required = False
+
             class Meta:
                 model = Comment
                 fields = ("author", "text")
@@ -197,3 +201,21 @@ Usage example a widget in a form:
                         attrs={"class": "django_ckeditor_5"}, config_name="comment"
                     )
                 }
+
+
+Custom storage example:
+
+  .. code-block:: python
+
+      import os
+      from urllib.parse import urljoin
+
+      from django.conf import settings
+      from django.core.files.storage import FileSystemStorage
+
+
+      class CustomStorage(FileSystemStorage):
+          """Custom storage for django_ckeditor_5 images."""
+
+          location = os.path.join(settings.MEDIA_ROOT, "django_ckeditor_5")
+          base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")

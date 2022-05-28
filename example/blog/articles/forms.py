@@ -7,6 +7,10 @@ from .models import Comment
 class CommentForm(forms.ModelForm):
     """Form for article comments."""
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["text"].required = False
+
     class Meta:
         model = Comment
         fields = ("author", "text")

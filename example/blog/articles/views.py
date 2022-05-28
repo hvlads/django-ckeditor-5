@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic import CreateView, FormView
 from django.views.generic.detail import DetailView
@@ -32,7 +33,5 @@ class ArticleDetailView(DetailView, FormView):
             comment = form.save(commit=False)
             comment.article = self.get_object()
             comment.save()
-        self.success_url = reverse(
-            "article-detail", kwargs={"pk": self.get_object().id}
-        )
-        return super().post(request, *args, **kwargs)
+        success_url = reverse("article-detail", kwargs={"pk": self.get_object().id})
+        return HttpResponseRedirect(success_url)
