@@ -17,8 +17,8 @@ class NoImageException(Exception):
 
 
 def get_storage_class():
-    if hasattr(settings, "CKEDITOR5_FILE_STORAGE"):
-        return import_string(settings.CKEDITOR5_FILE_STORAGE)
+    if hasattr(settings, "CKEDITOR_5_FILE_STORAGE"):
+        return import_string(settings.CKEDITOR_5_FILE_STORAGE)
     return import_string(settings.DEFAULT_FILE_STORAGE)
 
 
