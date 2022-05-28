@@ -5,7 +5,7 @@ from .models import Comment
 
 
 class CommentForm(forms.ModelForm):
-    """Form for article comments."""
+    """Custom storage for django_ckeditor_5 images."""
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

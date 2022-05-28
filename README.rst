@@ -187,7 +187,7 @@ Example of using a widget in a form:
 
 
       class CommentForm(forms.ModelForm):
-            """Form for article comments."""
+            """Form for comments to the article."""
 
             def __init__(self, *args, **kwargs):
                 super().__init__(*args, **kwargs)
