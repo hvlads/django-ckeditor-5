@@ -135,7 +135,6 @@ CKEDITOR_5_CONFIGS = {
             "bulletedList",
             "numberedList",
             "blockQuote",
-            "imageUpload",
         ],
     },
     "comment": {
@@ -148,7 +147,6 @@ CKEDITOR_5_CONFIGS = {
             "bulletedList",
             "numberedList",
             "blockQuote",
-            "imageUpload",
         ],
     },
     "extends": {
