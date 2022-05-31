@@ -81,7 +81,7 @@ Quick start
                 'blockQuote', 'imageUpload'
             ],
             'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-            'code','subscript', 'superscript', 'highlight', '|', 'codeBlock',
+            'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing',
                         'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',],

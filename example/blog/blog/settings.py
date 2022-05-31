@@ -148,6 +148,7 @@ CKEDITOR_5_CONFIGS = {
             "bulletedList",
             "numberedList",
             "blockQuote",
+            "imageUpload",
         ],
     },
     "extends": {
@@ -194,6 +195,7 @@ CKEDITOR_5_CONFIGS = {
             "mediaEmbed",
             "removeFormat",
             "insertTable",
+            "sourceEditing",
         ],
         "image": {
             "toolbar": [
