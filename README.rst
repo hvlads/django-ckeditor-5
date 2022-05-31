@@ -174,7 +174,8 @@ Includes the following ckeditor5 plugins:
             Indent, IndentBlock,
             Highlight,
             TodoList,
-            ListProperties
+            ListProperties,
+            SourceEditing
 
 Example of using a widget in a form:
 
