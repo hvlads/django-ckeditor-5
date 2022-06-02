@@ -115,6 +115,10 @@ STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_files"),
+]
+
 customColorPalette = [
     {"color": "hsl(4, 90%, 58%)", "label": "Red"},
     {"color": "hsl(340, 82%, 52%)", "label": "Pink"},
@@ -268,3 +272,4 @@ CKEDITOR_5_CONFIGS = {
     },
 }
 CKEDITOR_5_FILE_STORAGE = "articles.storage.CustomStorage"
+CKEDITOR_5_CUSTOM_CSS = "custom.css"
