@@ -263,10 +263,20 @@ CKEDITOR_5_CONFIGS = {
         },
         "list": {
             "properties": {
-                "styles": "true",
-                "startIndex": "true",
-                "reversed": "true",
+                "styles": True,
+                "startIndex": True,
+                "reversed": True,
             }
+        },
+        "htmlSupport": {
+            "allow": [
+                {
+                    "name": "/.*/",
+                    "attributes": True,
+                    "classes": True,
+                    "styles": True
+                }
+            ]
         }
 
     },

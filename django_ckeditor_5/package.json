@@ -22,6 +22,7 @@
     "@ckeditor/ckeditor5-font": "^34.1.0",
     "@ckeditor/ckeditor5-heading": "^34.1.0",
     "@ckeditor/ckeditor5-highlight": "^34.1.0",
+    "@ckeditor/ckeditor5-html-support": "^34.1.0",
     "@ckeditor/ckeditor5-image": "^34.1.0",
     "@ckeditor/ckeditor5-indent": "^34.1.0",
     "@ckeditor/ckeditor5-inspector": "^3.1.0",
@@ -39,8 +40,8 @@
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^34.1.0",
-    "@ckeditor/ckeditor5-dev-utils": "^34.1.0",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^34.1.0",
+    "@ckeditor/ckeditor5-dev-utils": "^30.3.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^30.3.0",
     "@ckeditor/ckeditor5-theme-lark": "^34.1.0",
     "css-loader": "5",
     "mini-css-extract-plugin": "^2.6.0",

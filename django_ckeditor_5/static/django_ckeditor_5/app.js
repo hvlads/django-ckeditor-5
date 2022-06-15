@@ -26,7 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
             `ck-editor-5-upload-url-${script_id}`
         ).getAttribute('data-upload-url');
         document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
-        const config = JSON.parse(document.getElementById(script_id).textContent);
+        const config = JSON.parse(
+            document.getElementById(script_id).textContent,
+            (key, value) => {
+                if(value.toString().includes('/')){
+                    return new RegExp(value.replaceAll('/', ''));
+                }
+                return value;
+            }
+        );
 
         config['simpleUpload'] = {
             'uploadUrl': upload_url, 'headers': {

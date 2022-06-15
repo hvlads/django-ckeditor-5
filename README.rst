@@ -175,7 +175,8 @@ Includes the following ckeditor5 plugins:
             Highlight,
             TodoList,
             ListProperties,
-            SourceEditing
+            SourceEditing,
+            GeneralHtmlSupport
 
 Example of using a widget in a form:
 
