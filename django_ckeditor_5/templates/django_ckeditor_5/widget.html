@@ -1,5 +1,7 @@
 <textarea  name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 {% if widget.value %}{{ widget.value }}{% endif %}</textarea>
+{% if errors %}
 {{ errors }}
+{% endif %}
 <input type="hidden" id="ck-editor-5-upload-url-{{script_id}}" data-upload-url="{{upload_url}}">
 {{ config|json_script:script_id}}
