@@ -142,6 +142,10 @@ CKEDITOR_5_CONFIGS = {
         ],
     },
     "comment": {
+        "language": {
+            "ui": "en",
+            "content": "ar"
+        },
         "toolbar": [
             "heading",
             "|",
@@ -154,6 +158,7 @@ CKEDITOR_5_CONFIGS = {
         ],
     },
     "extends": {
+        "language": "ru",
         "blockToolbar": [
             "paragraph",
             "heading1",
