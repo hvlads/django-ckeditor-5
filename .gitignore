@@ -11,6 +11,7 @@ db.sqlite3
 .idea
 /dist
 django_ckeditor_5/node_modules/
+django_ckeditor_5/yarn.lock
 .vscode/
 build/
 example/blog/env
@@ -25,3 +26,4 @@ example/blog/tests/.coverage
 example/blog/coverage.xml
 example/blog/pyproject.toml
 django_ckeditor_5/static/django_ckeditor_5/dist/*.map
+django_ckeditor_5/static/django_ckeditor_5/dist

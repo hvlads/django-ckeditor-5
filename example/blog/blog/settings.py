@@ -169,7 +169,6 @@ CKEDITOR_5_CONFIGS = {
             "numberedList",
             "|",
             "blockQuote",
-            "imageUpload",
         ],
         "toolbar": [
             "heading",
@@ -193,7 +192,7 @@ CKEDITOR_5_CONFIGS = {
             "todoList",
             "|",
             "blockQuote",
-            "imageUpload",
+            "insertImage",
             "|",
             "fontSize",
             "fontFamily",

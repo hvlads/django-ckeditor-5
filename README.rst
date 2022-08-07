@@ -78,10 +78,10 @@ Quick start
                 '|',
                 'bulletedList', 'numberedList',
                 '|',
-                'blockQuote', 'imageUpload'
+                'blockQuote',
             ],
             'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-            'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing',
+            'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
                         'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',],
@@ -221,3 +221,14 @@ Custom storage example:
 
           location = os.path.join(settings.MEDIA_ROOT, "django_ckeditor_5")
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
+
+Using from github:
+  .. code-block:: bash
+
+    cd your_root_project
+    git clone https://github.com/hvlads/django-ckeditor-5.git
+    cd django-ckeditor-5
+    yarn install
+    yarn run prod
+    cd your_root_project
+    python manage.py collectstatic
