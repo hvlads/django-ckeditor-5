@@ -159,6 +159,7 @@ Includes the following ckeditor5 plugins:
             ImageStyle,
             ImageToolbar,
             ImageUpload,
+            ImageInsert,
             ImageResize,
             Link,
             List,
