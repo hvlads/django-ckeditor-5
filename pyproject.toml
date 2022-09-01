@@ -4,17 +4,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-ckeditor-5"
-author = "Vladislav Khoboko"
-author_email = "vladislah@gmail.com"
 description = "CKEditor 5 for Django."
-include_package_data = true
+# include_package_data = true
 keywords = ["CKEditor", "CKEditor5", "Django"]
-license = {text = "BSD License"}
-packages = find
+license = {text = "BSD-3-Clause"}
+# packages = "find"
 readme = "README.rst"
 requires-python = ">=3.7"
-url = "https://github.com/hvlads/django-ckeditor-5"
 version = "0.1.8"
+
+authors = [
+    {"author" = "Vladislav Khoboko", "email" = "vladislah@gmail.com"},
+]
 
 classifiers = [
         "Environment :: Web Environment",
@@ -38,6 +39,10 @@ dependencies = [
   'Django == 4.1',
   'Pillow == 9.0.1',
 ]
+
+# urls = [
+#  {'Homepage' = 'https://github.com/hvlads/django-ckeditor-5'},
+#]
 
 [project.optional-dependencies]
 dev = [
