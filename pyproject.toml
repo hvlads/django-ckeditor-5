@@ -51,4 +51,3 @@ exclude = [
 install_types = true
 non_interactive = true
 ignore_missing_imports = true
-

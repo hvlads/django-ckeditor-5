@@ -1,5 +1,3 @@
-from typing import Tuple
-
 from django import forms, get_version
 from django.conf import settings
 from django.forms.renderers import get_default_renderer
