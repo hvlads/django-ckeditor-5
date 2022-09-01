@@ -26,3 +26,4 @@ example/blog/coverage.xml
 example/blog/pyproject.toml
 django_ckeditor_5/static/django_ckeditor_5/dist/*.map
 django_ckeditor_5/static/django_ckeditor_5/dist
+build.sh
