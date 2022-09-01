@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from django import forms, get_version
 from django.conf import settings
 from django.forms.renderers import get_default_renderer
@@ -49,15 +51,16 @@ class CKEditor5Widget(forms.Widget):
         custom_css = getattr(settings, "CKEDITOR_5_CUSTOM_CSS", None)
         if custom_css:
             css["all"].append(custom_css)
-        js = ("django_ckeditor_5/dist/bundle.js",)
+        js = ["django_ckeditor_5/dist/bundle.js", ]
         configs = getattr(settings, "CKEDITOR_5_CONFIGS", None)
-        for config in configs.keys():
-            language = configs[config].get('language')
-            if language:
-                if isinstance(language, str) and language != "en":
-                    js += (f"django_ckeditor_5/dist/translations/{language}.js",)
-                elif isinstance(language, dict) and language.get('ui') and language["ui"] != "en":
-                    js += (f"django_ckeditor_5/dist/translations/{language['ui']}.js",)
+        if configs is not None:
+            for config in configs.keys():
+                language = configs[config].get('language')
+                if language:
+                    if isinstance(language, str) and language != "en":
+                        js += [f"django_ckeditor_5/dist/translations/{language}.js",]
+                    elif isinstance(language, dict) and language.get('ui') and language["ui"] != "en":
+                        js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js", ]
 
     def render(self, name, value, attrs=None, renderer=None):
         context = super(CKEditor5Widget, self).get_context(name, value, attrs)

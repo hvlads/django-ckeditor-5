@@ -24,3 +24,31 @@ exclude = '''
   )/
 )
 '''
+
+[tool.flake8]
+ignore = ['B009', 'E302', 'F401', 'W292', 'W391']
+per-file-ignores = [
+    '__init__.py:F401',
+]
+exclude = '.git,__pycache__,docs/source/conf.py,old,build,dist,env'
+max-line-length = 140
+count = true
+show-source = true
+statistics = true
+max-complexity = 10
+
+[tool.isort]
+profile = "black"
+skip = ["env", "migrations", "build"]
+
+[tool.mypy]
+exclude = [
+    'example/blog/articles/migrations',
+    "build",
+    "env",
+    "example/blog/django_ckeditor_5"
+]
+install_types = true
+non_interactive = true
+ignore_missing_imports = true
+

@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.views.generic import CreateView, FormView
+from django.views.generic import FormView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
