@@ -56,7 +56,7 @@ class CKEditor5Widget(forms.Widget):
                 language = configs[config].get('language')
                 if language:
                     if isinstance(language, str) and language != "en":
-                        js += [f"django_ckeditor_5/dist/translations/{language}.js",]
+                        js += [f"django_ckeditor_5/dist/translations/{language}.js", ]
                     elif isinstance(language, dict) and language.get('ui') and language["ui"] != "en":
                         js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js", ]
 
