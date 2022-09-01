@@ -9,18 +9,14 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install --upgrade pip wheel
-      - run: pip install bandit black codespell flake8 flake8-2020 flake8-bugbear
-                         flake8-comprehensions isort mypy pytest pyupgrade safety
-      - run: bandit --recursive --skip B101,B105,B308,B703 .
-      - run: black --check --force-exclude example/blog/articles/migrations . || true 
+      - run: pip install -r requirements_dev.txt
+      - run: bandit --configfile pyproject.toml --recursive .
+      - run: black --check .
       - run: codespell --ignore-words-list="ro" --skip="*.json,*.lock"
-      - run: flake8 --ignore=B009,E302,F401,W292,W391 --max-complexity=10
-                    --max-line-length=140 --show-source --statistics .
-      - run: isort --check-only --profile black --skip example/blog/articles/migrations . || true 
+      - run: flake8 .
+      - run: isort --check-only  .
       - run: pip install --editable .
-      - run: pip install Django Pillow pytest-django
-      - run: mkdir --parents --verbose .mypy_cache
-      - run: mypy --exclude example/blog/articles/migrations --ignore-missing-imports --install-types --non-interactive . || true
+      - run: mypy --non-interactive .
       - run: pytest .
       - run: shopt -s globstar && pyupgrade --py37-plus **/*.py
       - run: safety check
