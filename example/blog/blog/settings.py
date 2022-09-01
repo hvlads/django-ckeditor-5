@@ -24,7 +24,9 @@ SECRET_KEY = "mr3e&=yzha$_#-#1=ro@*rfsgm_k-ka%w$!=xgx1t@$9g!pz(_"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -143,10 +145,7 @@ CKEDITOR_5_CONFIGS = {
         ],
     },
     "comment": {
-        "language": {
-            "ui": "en",
-            "content": "ar"
-        },
+        "language": {"ui": "en", "content": "ar"},
         "toolbar": [
             "heading",
             "|",
@@ -275,15 +274,9 @@ CKEDITOR_5_CONFIGS = {
         },
         "htmlSupport": {
             "allow": [
-                {
-                    "name": "/.*/",
-                    "attributes": True,
-                    "classes": True,
-                    "styles": True
-                }
+                {"name": "/.*/", "attributes": True, "classes": True, "styles": True}
             ]
-        }
-
+        },
     },
 }
 CKEDITOR_5_FILE_STORAGE = "articles.storage.CustomStorage"
