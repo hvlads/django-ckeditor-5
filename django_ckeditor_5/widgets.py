@@ -33,7 +33,7 @@ class CKEditor5Widget(forms.Widget):
         default_attrs = {"class": "django_ckeditor_5"}
         if attrs:
             default_attrs.update(attrs)
-        super(CKEditor5Widget, self).__init__(default_attrs)
+        super().__init__(default_attrs)
 
     def format_error(self, ex):
         return "{} {}".format(
@@ -61,7 +61,7 @@ class CKEditor5Widget(forms.Widget):
                         js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js", ]
 
     def render(self, name, value, attrs=None, renderer=None):
-        context = super(CKEditor5Widget, self).get_context(name, value, attrs)
+        context = super().get_context(name, value, attrs)
 
         if renderer is None:
             renderer = get_default_renderer()

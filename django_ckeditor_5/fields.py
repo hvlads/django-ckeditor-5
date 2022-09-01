@@ -12,7 +12,7 @@ class CKEditor5Field(models.Field):
         return "TextField"
 
     def formfield(self, **kwargs):
-        return super(CKEditor5Field, self).formfield(
+        return super().formfield(
             **{
                 "max_length": self.max_length,
                 **({"widget": CKEditor5Widget(config_name=self.config_name)}),

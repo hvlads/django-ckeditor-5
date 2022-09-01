@@ -30,7 +30,7 @@ storage = get_storage_class()
 def image_verify(f):
     try:
         Image.open(f).verify()
-    except IOError:
+    except OSError:
         raise NoImageException
 
 
@@ -46,7 +46,7 @@ def upload_file(request):
         try:
             image_verify(request.FILES["upload"])
         except NoImageException as ex:
-            return JsonResponse({"error": {"message": "{}".format(str(ex))}})
+            return JsonResponse({"error": {"message": f"{str(ex)}"}})
         if form.is_valid():
             url = handle_uploaded_file(request.FILES["upload"])
             return JsonResponse({"url": url})
