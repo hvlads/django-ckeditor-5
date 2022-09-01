@@ -7,7 +7,7 @@ name = "django-ckeditor-5"
 author = "Vladislav Khoboko"
 author_email = "vladislah@gmail.com"
 description = "CKEditor 5 for Django."
-include_package_data = True
+include_package_data = true
 keywords = ["CKEditor", "CKEditor5", "Django"]
 license = {text = "BSD License"}
 packages = find
