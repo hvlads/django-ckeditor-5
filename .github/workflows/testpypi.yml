@@ -17,5 +17,5 @@ jobs:
       - name: Upload packages
         run: python -m twine upload --repository testpypi dist/*
         env:
-          TWINE_USERNAME: __token__
+          TWINE_USERNAME: ${{ secrets.TESTPYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TESTPYPI_PASSWORD }}
