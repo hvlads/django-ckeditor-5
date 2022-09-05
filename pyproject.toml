@@ -5,10 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "django-ckeditor-5"
 description = "CKEditor 5 for Django."
-# include_package_data = true
 keywords = ["CKEditor", "CKEditor5", "Django"]
 license = {text = "BSD-3-Clause"}
-# packages = "find"
 readme = "README.rst"
 requires-python = ">=3.7"
 version = "0.1.8"
@@ -40,9 +38,9 @@ dependencies = [
   'Pillow == 9.0.1',
 ]
 
-# urls = [
-#  {'Homepage' = 'https://github.com/hvlads/django-ckeditor-5'},
-#]
+[project.urls]
+homepage = "https://pypi.org/project/django-ckeditor-5/"
+repository = "https://github.com/hvlads/django-ckeditor-5"
 
 [project.optional-dependencies]
 dev = [

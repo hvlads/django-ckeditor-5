@@ -183,7 +183,7 @@ Examples
 -----------
 
 Example of using a widget in a form:
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
 
       from django import forms
@@ -210,7 +210,7 @@ Example of using a widget in a form:
 
 
 Custom storage example:
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
 
       import os
@@ -227,7 +227,7 @@ Custom storage example:
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
 
 Using from github:
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
 
     cd your_root_project
@@ -238,8 +238,8 @@ Using from github:
     cd your_root_project
     python manage.py collectstatic
     
-Example Sharing content styles between front-end and back-end
-^^^^^^^^^^^
+Example Sharing content styles between front-end and back-end:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To apply ckeditor5 styling outside of the editor, download content.styles.css from the official ckeditor5 docs and include it as a styleshet within your HTML template. You will need to add the ck-content class to the container of your content for the styles to be applied.
 `<https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html#sharing-content-styles-between-frontend-and-backend>`_
 
