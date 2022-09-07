@@ -20,21 +20,7 @@ Quick start
         ]
 
 
-2. Include the app URLconf in your `project/urls.py` like this:
- 
-  .. code-block:: python
-
-       from django.conf import settings
-       from django.conf.urls.static import static
-       
-       # [ ... ]
-       
-       urlpatterns += [ 
-           path("ckeditor5/", include('django_ckeditor_5.urls')),
-       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
-    
-3. Add to your `project/settings.py`:
+2. Also, in your `project/settings.py` add:
 
   .. code-block:: python
 
@@ -133,7 +119,20 @@ Quick start
     }
 
 
+3. Include the app URLconf in your `project/urls.py` like this:
+ 
+  .. code-block:: python
 
+       from django.conf import settings
+       from django.conf.urls.static import static
+       
+       # [ ... ]
+       
+       urlpatterns += [ 
+           path("ckeditor5/", include('django_ckeditor_5.urls')),
+       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    
 4. Add to your `project/models.py`:
 
   .. code-block:: python
