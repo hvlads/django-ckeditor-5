@@ -231,8 +231,8 @@ Custom storage example:
           location = os.path.join(settings.MEDIA_ROOT, "django_ckeditor_5")
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
 
-Using from GitHub:
-^^^^^^^^^^^^^^^^^^
+Installing from GitHub:
+^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
 
     cd your_root_project
