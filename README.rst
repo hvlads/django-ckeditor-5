@@ -10,7 +10,7 @@ Quick start
  
         pip install django-ckeditor-5
 
-1. Add "django_ckeditor_5" to your INSTALLED_APPS setting like this:
+1. Add "django_ckeditor_5" to your INSTALLED_APPS in your `project/settings.py` like this:
 
  .. code-block:: python
 
@@ -20,16 +20,7 @@ Quick start
         ]
 
 
-2. Include the app URLconf in your project urls.py like this:
- 
-  .. code-block:: python
-
-       urlpatterns += [ 
-           path("ckeditor5/", include('django_ckeditor_5.urls')),
-       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
-    
-3. Add to your settings.py:
+2. Also, in your `project/settings.py` add:
 
   .. code-block:: python
 
@@ -128,8 +119,21 @@ Quick start
     }
 
 
+3. Include the app URLconf in your `project/urls.py` like this:
+ 
+  .. code-block:: python
 
-4. Add to your `models.py`:
+       from django.conf import settings
+       from django.conf.urls.static import static
+       
+       # [ ... ]
+       
+       urlpatterns += [ 
+           path("ckeditor5/", include('django_ckeditor_5.urls')),
+       ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    
+4. Add to your `project/models.py`:
 
   .. code-block:: python
 
@@ -226,8 +230,8 @@ Custom storage example:
           location = os.path.join(settings.MEDIA_ROOT, "django_ckeditor_5")
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
 
-Using from github:
-^^^^^^^^^^^^^^^^^^
+Installing from GitHub:
+^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
 
     cd your_root_project
