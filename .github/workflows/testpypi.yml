@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-python@v4.2.0
       - uses: actions/setup-node@v3.4.1
       - uses: actions/checkout@v3
-      - name: Buik
+      - name: Build ck-editor
           working-directory: ./django_ckeditor_5
           run: |
             npm install
