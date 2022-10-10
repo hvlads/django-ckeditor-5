@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const config = JSON.parse(
             document.getElementById(script_id).textContent,
             (key, value) => {
-                if(value.toString().includes('/')){
+                if (value.toString().includes('/')) {
                     return new RegExp(value.replaceAll('/', ''));
                 }
                 return value;
@@ -41,12 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 'X-CSRFToken': getCookie('csrftoken'),
             }
         }
+        config['mediaEmbed'] = {
+            extraProviders: [
+                {
+                    name: 'bilibili',
+                    url: /bilibili\.com\/video\/([\w]+)\/\?([\s\S]+)/,
+                    html: match => {
+                        const id = match[1];
+                        return (
+                            '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 64%;">' +
+                            `<iframe src="https//player.bilibili.com/player.html?aid=986434028&bvid=${id}&cid=856633420&page=1&high_quality=1" ` +
+                            'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+                            'frameborder="no" width="480" height="270" scrolling="no" allowfullscreen allow="autoplay">' +
+                            '</iframe>' +
+                            '</div>'
+                        );
+                    }
+                },
+            ],
+            previewsInData: true,
+        }
         ClassicEditor.create(allEditors[i],
             config).then(editor => {
-            editors.push(editor);
-        }).catch(error => {
+                editors.push(editor);
+            }).catch(error => {
 
-        });
+            });
     }
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;

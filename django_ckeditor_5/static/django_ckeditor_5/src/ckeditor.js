@@ -38,6 +38,8 @@ import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties';
 import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
 import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
+import LinkImage from "@ckeditor/ckeditor5-link/src/linkimage";
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 
 
 export default class ClassicEditor extends ClassicEditorBase {
@@ -60,6 +62,7 @@ ClassicEditor.builtinPlugins = [
     ImageToolbar,
     ImageResize,
     Link,
+    LinkImage,
     List,
     Paragraph,
     Alignment,
@@ -76,5 +79,6 @@ ClassicEditor.builtinPlugins = [
     ListProperties,
     SourceEditing,
     GeneralHtmlSupport,
-    ImageInsert
+    ImageInsert,
+    HorizontalLine,
 ];
