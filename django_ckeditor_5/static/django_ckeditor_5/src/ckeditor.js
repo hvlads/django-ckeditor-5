@@ -38,6 +38,7 @@ import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties';
 import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting';
 import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
+import {TableCaption} from "@ckeditor/ckeditor5-table";
 
 
 export default class ClassicEditor extends ClassicEditorBase {
@@ -69,6 +70,7 @@ ClassicEditor.builtinPlugins = [
     MediaEmbed,
     RemoveFormat,
     Table, TableToolbar,
+    TableCaption,
     TableProperties, TableCellProperties,
     Indent, IndentBlock,
     Highlight,
