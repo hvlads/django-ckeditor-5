@@ -228,6 +228,7 @@ CKEDITOR_5_CONFIGS = {
                 "mergeTableCells",
                 "tableProperties",
                 "tableCellProperties",
+                "toggleTableCaption",
             ],
             "tableProperties": {
                 "borderColors": customColorPalette,
