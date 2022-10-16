@@ -45,12 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
             extraProviders: [
                 {
                     name: 'bilibili',
-                    url: /^bilibili\.com\/video\/([\w]+)\/([?\s\S]+)?/,
+                    url: [
+                        /^bilibili\.com\/video\/([\w]+)\/([?\s\S]+)?/,
+                        /^bilibili\.com\/video\/([\w]+)/,
+                    ],
                     html: match => {
                         const id = match[1];
+                        const resource = match[2];
                         return (
                             '<div style="position: relative; padding-bottom: 100%; height: 0; padding-bottom: 64%;">' +
-                            `<iframe src="https//player.bilibili.com/player.html?aid=986434028&bvid=${id}&cid=856633420&page=1&high_quality=1" ` +
+                            `<iframe src="https://player.bilibili.com/player.html?aid=986434028&bvid=${id}&cid=856633420&page=1&high_quality=1" ` +
                             'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
                             'frameborder="no" width="480" height="270" scrolling="no" allowfullscreen allow="autoplay">' +
                             '</iframe>' +
@@ -59,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 },
             ],
-            previewsInData: true,
+            previewsInData: false,
         }
         ClassicEditor.create(allEditors[i],
             config).then(editor => {
