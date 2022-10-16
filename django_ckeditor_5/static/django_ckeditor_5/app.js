@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             extraProviders: [
                 {
                     name: 'bilibili',
-                    url: /bilibili\.com\/video\/([\w]+)\/\?([\s\S]+)/,
+                    url: /^bilibili\.com\/video\/([\w]+)\/([?\s\S]+)?/,
                     html: match => {
                         const id = match[1];
                         return (
