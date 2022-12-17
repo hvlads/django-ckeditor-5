@@ -69,6 +69,7 @@ class CKEditor5Widget(forms.Widget):
         context["config"] = self.config
         context["script_id"] = "{}{}".format(attrs["id"], "_script")
         context["upload_url"] = reverse("ck_editor_5_upload_file")
+        context["csrf_cookie_name"] = settings.CSRF_COOKIE_NAME
         if self._config_errors:
             context["errors"] = ErrorList(self._config_errors)
 

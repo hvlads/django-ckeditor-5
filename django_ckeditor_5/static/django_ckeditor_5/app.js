@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const upload_url = document.getElementById(
             `ck-editor-5-upload-url-${script_id}`
         ).getAttribute('data-upload-url');
+        const csrf_cookie_name = document.getElementById(
+            `ck-editor-5-upload-url-${script_id}`
+        ).getAttribute('data-csrf_cookie_name');
         document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
         const config = JSON.parse(
             document.getElementById(script_id).textContent,
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         config['simpleUpload'] = {
             'uploadUrl': upload_url, 'headers': {
-                'X-CSRFToken': getCookie('csrftoken'),
+                'X-CSRFToken': getCookie(csrf_cookie_name),
             }
         }
         ClassicEditor.create(allEditors[i],

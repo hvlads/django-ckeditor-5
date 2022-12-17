@@ -3,5 +3,5 @@
 {% if errors %}
 {{ errors }}
 {% endif %}
-<input type="hidden" id="ck-editor-5-upload-url-{{script_id}}" data-upload-url="{{upload_url}}">
+<input type="hidden" id="ck-editor-5-upload-url-{{script_id}}" data-upload-url="{{upload_url}}" data-csrf_cookie_name="{{ csrf_cookie_name }}">
 {{ config|json_script:script_id}}
