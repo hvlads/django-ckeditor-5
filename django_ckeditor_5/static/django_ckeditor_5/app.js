@@ -2,6 +2,9 @@ import ClassicEditor from './src/ckeditor';
 import './src/override-django.css';
 
 
+let editors = [];
+let editorsIds = [];
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -17,11 +20,14 @@ function getCookie(name) {
     return cookieValue;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    let editors = [];
+function createEditors() {
     const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
         const script_id = `${allEditors[i].id}_script`;
+        if (editorsIds.indexOf(script_id) !== -1){
+            continue;
+        }
+        allEditors[i].nextSibling.remove();
         const upload_url = document.getElementById(
             `ck-editor-5-upload-url-${script_id}`
         ).getAttribute('data-upload-url');
@@ -46,15 +52,25 @@ document.addEventListener("DOMContentLoaded", () => {
         ClassicEditor.create(
             allEditors[i],
             config
-        ).then( editor => {
+        ).then(editor => {
             const wordCountPlugin = editor.plugins.get('WordCount');
             const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
+            wordCountWrapper.innerHTML = '';
             wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             editors.push(editor);
         }).catch(error => {
-
+            console.error((error));
         });
+        editorsIds.push(script_id);
     }
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    createEditors();
+    if (typeof django === "object" && django.jQuery) {
+      django.jQuery(document).on("formset:added", createEditors);
+    }
 });
+
