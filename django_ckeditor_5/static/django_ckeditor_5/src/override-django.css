@@ -29,3 +29,11 @@ form .aligned .ck ul {
     margin-left: 1.5em;
     padding-left: inherit;
 }
+.ck-word-count{
+    display: flex;
+    margin-top: 10px;
+}
+
+.ck-word-count__words{
+    margin-right: 10px;
+}

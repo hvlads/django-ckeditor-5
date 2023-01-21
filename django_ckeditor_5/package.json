@@ -1,6 +1,6 @@
 {
   "name": "django_ckeditor_5",
-  "version": "1.0.0",
+  "version": "0.2.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -36,7 +36,8 @@
     "@ckeditor/ckeditor5-table": "^35.4.0",
     "@ckeditor/ckeditor5-theme-lark": "^35.4.0",
     "@ckeditor/ckeditor5-ui": "^35.4.0",
-    "@ckeditor/ckeditor5-upload": "^35.4.0"
+    "@ckeditor/ckeditor5-upload": "^35.4.0",
+    "@ckeditor/ckeditor5-word-count": "^35.4.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^35.4.0",

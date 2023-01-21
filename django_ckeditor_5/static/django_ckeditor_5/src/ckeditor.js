@@ -39,6 +39,7 @@ import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting'
 import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import {TableCaption} from "@ckeditor/ckeditor5-table";
+import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
 
 
 export default class ClassicEditor extends ClassicEditorBase {
@@ -78,5 +79,6 @@ ClassicEditor.builtinPlugins = [
     ListProperties,
     SourceEditing,
     GeneralHtmlSupport,
-    ImageInsert
+    ImageInsert,
+    WordCount
 ];
