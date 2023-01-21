@@ -1,7 +1,6 @@
 import ClassicEditor from './src/ckeditor';
 import './src/override-django.css';
 
-let editors = [];
 
 function getCookie(name) {
     let cookieValue = null;
@@ -19,9 +18,10 @@ function getCookie(name) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    let editors = [];
     const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
-        const script_id = `${allEditors[i].id}_script`
+        const script_id = `${allEditors[i].id}_script`;
         const upload_url = document.getElementById(
             `ck-editor-5-upload-url-${script_id}`
         ).getAttribute('data-upload-url');
@@ -32,20 +32,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const config = JSON.parse(
             document.getElementById(script_id).textContent,
             (key, value) => {
-                if(value.toString().includes('/')){
+                if (value.toString().includes('/')) {
                     return new RegExp(value.replaceAll('/', ''));
                 }
                 return value;
             }
         );
-
-        config['simpleUpload'] = {
+        config.simpleUpload = {
             'uploadUrl': upload_url, 'headers': {
                 'X-CSRFToken': getCookie(csrf_cookie_name),
             }
-        }
-        ClassicEditor.create(allEditors[i],
-            config).then(editor => {
+        };
+        ClassicEditor.create(
+            allEditors[i],
+            config
+        ).then( editor => {
+            const wordCountPlugin = editor.plugins.get('WordCount');
+            const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
+            wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             editors.push(editor);
         }).catch(error => {
 
