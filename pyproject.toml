@@ -12,7 +12,7 @@ requires-python = ">=3.7"
 version = "0.2.3"
 
 authors = [
-    {"author" = "Vladislav Khoboko", "email" = "vladislah@gmail.com"},
+    {"name" = "Vladislav Khoboko", "email" = "vladislah@gmail.com"},
 ]
 
 classifiers = [
