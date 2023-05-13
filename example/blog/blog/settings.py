@@ -283,6 +283,22 @@ CKEDITOR_5_CONFIGS = {
                 {"name": "/.*/", "attributes": True, "classes": True, "styles": True}
             ]
         },
+        "mention": {
+            "feeds": [
+                {
+                    "marker": "@",
+                    "feed": [
+                        "@Barney",
+                        "@Lily",
+                        "@Marry Ann",
+                        "@Marshall",
+                        "@Robin",
+                        "@Ted",
+                    ],
+                    "minimumCharacters": 1,
+                }
+            ]
+        },
     },
 }
 CKEDITOR_5_FILE_STORAGE = "articles.storage.CustomStorage"

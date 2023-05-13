@@ -40,7 +40,7 @@ import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtml
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import {TableCaption} from "@ckeditor/ckeditor5-table";
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
-
+import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -53,7 +53,10 @@ ClassicEditor.builtinPlugins = [
     Bold,
     Italic,
     Underline,
-    Strikethrough, Code, Subscript, Superscript,
+    Strikethrough,
+    Code,
+    Subscript,
+    Superscript,
     BlockQuote,
     Heading,
     Image,
@@ -72,13 +75,16 @@ ClassicEditor.builtinPlugins = [
     RemoveFormat,
     Table, TableToolbar,
     TableCaption,
-    TableProperties, TableCellProperties,
-    Indent, IndentBlock,
+    TableProperties,
+    TableCellProperties,
+    Indent,
+    IndentBlock,
     Highlight,
     TodoList,
     ListProperties,
     SourceEditing,
     GeneralHtmlSupport,
     ImageInsert,
-    WordCount
+    WordCount,
+    Mention,
 ];
