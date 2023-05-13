@@ -59,7 +59,6 @@ Quick start
       CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage" # optional
       CKEDITOR_5_CONFIGS = { 
         'default': {
-            'removePlugins': ['Markdown'],  # Add this if you want to use SourceEditing for HTML.
             'toolbar': ['heading', '|', 'bold', 'italic', 'link',
                         'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
     
@@ -191,8 +190,7 @@ Includes the following ckeditor5 plugins:
             GeneralHtmlSupport,
             ImageInsert,
             WordCount,
-            Mention,
-            Markdown
+            Mention
 
 
 Examples
