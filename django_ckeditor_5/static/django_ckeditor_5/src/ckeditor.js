@@ -41,6 +41,7 @@ import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert';
 import {TableCaption} from "@ckeditor/ckeditor5-table";
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
+import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -87,4 +88,5 @@ ClassicEditor.builtinPlugins = [
     ImageInsert,
     WordCount,
     Mention,
+    Markdown
 ];
