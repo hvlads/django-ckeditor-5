@@ -135,6 +135,7 @@ customColorPalette = [
 
 CKEDITOR_5_CONFIGS = {
     "default": {
+        "removePlugins": ["Markdown"],
         "toolbar": [
             "heading",
             "|",
