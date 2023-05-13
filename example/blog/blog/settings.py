@@ -135,7 +135,9 @@ customColorPalette = [
 
 CKEDITOR_5_CONFIGS = {
     "default": {
-        "removePlugins": ["Markdown"],  # Add this if you want to use SourceEditing for HTML.
+        "removePlugins": [
+            "Markdown"
+        ],  # Add this if you want to use SourceEditing for HTML.
         "toolbar": [
             "heading",
             "|",
