@@ -29,10 +29,10 @@ function createEditors() {
         }
         allEditors[i].nextSibling.remove();
         const upload_url = document.getElementById(
-            `ck-editor-5-upload-url-${script_id}`
+            `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
         const csrf_cookie_name = document.getElementById(
-            `ck-editor-5-upload-url-${script_id}`
+            `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
         document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
         const config = JSON.parse(
@@ -55,7 +55,7 @@ function createEditors() {
         ).then(editor => {
             if (editor.plugins.has('WordCount')) {
                 const wordCountPlugin = editor.plugins.get('WordCount');
-                const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
+                const wordCountWrapper = document.getElementById(`${script_id}-word-count`);
                 wordCountWrapper.innerHTML = '';
                 wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             }
