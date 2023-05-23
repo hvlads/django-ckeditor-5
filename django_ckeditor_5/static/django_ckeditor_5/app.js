@@ -3,7 +3,6 @@ import './src/override-django.css';
 
 
 let editors = [];
-let editorsIds = [];
 
 function getCookie(name) {
     let cookieValue = null;
@@ -23,10 +22,13 @@ function getCookie(name) {
 function createEditors() {
     const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
-        const script_id = `${allEditors[i].id}_script`;
-        if (editorsIds.indexOf(script_id) !== -1) {
+        if (
+            allEditors[i].id.indexOf('__prefix__') !== -1 ||
+            allEditors[i].getAttribute('data-processed') === '1'
+        ) {
             continue;
         }
+        const script_id = `${allEditors[i].id}_script`;
         allEditors[i].nextSibling.remove();
         const upload_url = document.getElementById(
             `${script_id}-ck-editor-5-upload-url`
@@ -63,7 +65,7 @@ function createEditors() {
         }).catch(error => {
             console.error((error));
         });
-        editorsIds.push(script_id);
+        allEditors[i].setAttribute('data-processed', '1');
     }
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;
