@@ -8,6 +8,7 @@ else:
     from django.utils.translation import ugettext_lazy as _
 
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.http import JsonResponse
 from PIL import Image
 
@@ -19,9 +20,26 @@ class NoImageException(Exception):
 
 
 def get_storage_class():
-    if hasattr(settings, "CKEDITOR_5_FILE_STORAGE"):
-        return import_string(settings.CKEDITOR_5_FILE_STORAGE)
-    return import_string(settings.DEFAULT_FILE_STORAGE)
+    storage_setting = getattr(settings, "CKEDITOR_5_FILE_STORAGE", None)
+    default_storage_setting = getattr(settings, "DEFAULT_FILE_STORAGE", None)
+    storages_setting = getattr(settings, "STORAGES", {})
+    default_storage_name = storages_setting.get("default", {}).get("BACKEND")
+
+    if storage_setting:
+        return import_string(storage_setting)
+    elif default_storage_setting:
+        try:
+            return import_string(default_storage_setting)
+        except ImportError:
+            raise ImproperlyConfigured(f"Invalid default storage class: {default_storage_setting}")
+    elif default_storage_name:
+        try:
+            return import_string(default_storage_name)
+        except ImportError:
+            raise ImproperlyConfigured(f"Invalid default storage class: {default_storage_name}")
+    else:
+        raise ImproperlyConfigured(
+            "Either CKEDITOR_5_FILE_STORAGE, DEFAULT_FILE_STORAGE, or STORAGES['default'] setting is required.")
 
 
 storage = get_storage_class()
