@@ -1,5 +1,5 @@
-from django.urls import reverse
 from django.test import override_settings
+from django.urls import reverse
 
 
 def test_upload_file(admin_client, file):
