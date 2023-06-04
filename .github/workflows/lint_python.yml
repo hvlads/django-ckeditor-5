@@ -20,6 +20,7 @@ jobs:
       - run: cp -R django_ckeditor_5 example/blog
       - run: cd example
       - run: pip install -e ".[dev]"
-      - run: pytest blog/
+      - run: ls -la
+      - run: pytest ./blog
       - run: shopt -s globstar && pyupgrade --py37-plus **/*.py
       - run: safety check
