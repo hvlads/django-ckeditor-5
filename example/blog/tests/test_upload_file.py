@@ -1,4 +1,5 @@
 from django.urls import reverse
+from django.test import override_settings
 
 
 def test_upload_file(admin_client, file):
@@ -10,9 +11,11 @@ def test_upload_file(admin_client, file):
     assert "url" in response.json()
 
 
-def test_upload_file_to_google_cloud(admin_client, file, settings, mocker):
-    settings.CKEDITOR_5_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
-    settings.GS_BUCKET_NAME = "test"
+@override_settings(
+    CKEDITOR_5_FILE_STORAGE="storages.backends.gcloud.GoogleCloudStorage",
+    GS_BUCKET_NAME="test",
+)
+def test_upload_file_to_google_cloud(admin_client, file, settings):
     with file as upload:
         response = admin_client.post(
             reverse("ck_editor_5_upload_file"), {"upload": upload}

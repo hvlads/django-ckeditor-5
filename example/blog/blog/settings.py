@@ -205,6 +205,7 @@ CKEDITOR_5_CONFIGS = {
                 "removeFormat",
                 "insertTable",
                 "sourceEditing",
+                "style",
             ],
             "shouldNotGroupWhenFull": True,
         },
@@ -299,9 +300,20 @@ CKEDITOR_5_CONFIGS = {
                 }
             ]
         },
+        "style": {
+            "definitions": [
+                {"name": "Article category", "element": "h3", "classes": ["category"]},
+                {"name": "Info box", "element": "p", "classes": ["info-box"]},
+            ]
+        },
     },
 }
-CKEDITOR_5_FILE_STORAGE = "articles.storage.CustomStorage"
+STORAGES = {
+    "default": {"BACKEND": "articles.storage.CustomStorage"},
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 CKEDITOR_5_CUSTOM_CSS = "custom.css"
 
 CSRF_COOKIE_NAME = "new_csrf_cookie_name"
