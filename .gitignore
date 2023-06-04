@@ -20,9 +20,11 @@ example/blog/static/*
 example/blog/media/*
 example/django_ckeditor_5
 example/blog/django_ckeditor_5
+example/.coverage
 example/blog/.coverage
 example/blog/tests/.coverage
 example/blog/coverage.xml
+example/coverage.xml
 example/blog/pyproject.toml
 django_ckeditor_5/static/django_ckeditor_5/dist/*.map
 django_ckeditor_5/static/django_ckeditor_5/dist

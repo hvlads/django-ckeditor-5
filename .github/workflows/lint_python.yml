@@ -17,6 +17,9 @@ jobs:
       - run: isort --check-only  .
       - run: pip install --editable .
       - run: mypy --non-interactive .
-      - run: pytest .
+      - run: cp -R django_ckeditor_5 example/blog
+      - run: cd example
+      - run: pip install -e ".[dev]"
+      - run: pytest example/blog
       - run: shopt -s globstar && pyupgrade --py37-plus **/*.py
       - run: safety check

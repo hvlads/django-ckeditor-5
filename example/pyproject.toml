@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blog"
+version = "0.0.1"
+
+dependencies = [
+    'Django >= 2.2',
+    'Pillow',
+    'django-ckeditor-5'
+]
+
+[tool.setuptools]
+packages = ["blog"]
+
+[project.optional-dependencies]
+dev = [
+    'django-storages==1.12.3',
+    'google-cloud-storage==2.3.0',
+]
+
+[tool.black]
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.pytest_cache
+    | \.tox
+    | \.venv
+    | venv
+    | env
+    | _build
+    | buck-out
+    | build
+    | dist
+    | django_ckeditor_5
+    | migrations
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[tool.pytest.ini_options]
+# py.test configuration: http://doc.pytest.org/en/latest/customize.html
+norecursedirs = "tests/fixtures *.egg .eggs dist build docs .tox .git __pycache__ venv env migrations"
+DJANGO_SETTINGS_MODULE = "blog.settings"
+filterwarnings = """
+  ignore::DeprecationWarning
+"""
+addopts = """
+  --strict
+  --doctest-modules
+  --cov
+  --cov-branch
+  --cov-report=term-missing:skip-covered
+  --cov-report=html
+  --cov-report=xml
+  --cov-fail-under=80
+"""

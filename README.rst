@@ -190,7 +190,8 @@ Includes the following ckeditor5 plugins:
             GeneralHtmlSupport,
             ImageInsert,
             WordCount,
-            Mention
+            Mention,
+            Style
 
 
 Examples
