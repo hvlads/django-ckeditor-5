@@ -24,7 +24,7 @@ function createEditors() {
     const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
         const script_id = `${allEditors[i].id}_script`;
-        if (editorsIds.indexOf(script_id) !== -1){
+        if (editorsIds.indexOf(script_id) !== -1) {
             continue;
         }
         allEditors[i].nextSibling.remove();
@@ -53,10 +53,12 @@ function createEditors() {
             allEditors[i],
             config
         ).then(editor => {
-            const wordCountPlugin = editor.plugins.get('WordCount');
-            const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
-            wordCountWrapper.innerHTML = '';
-            wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
+            if (editor.plugins.has('WordCount')) {
+                const wordCountPlugin = editor.plugins.get('WordCount');
+                const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
+                wordCountWrapper.innerHTML = '';
+                wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
+            }
             editors.push(editor);
         }).catch(error => {
             console.error((error));
@@ -70,7 +72,7 @@ function createEditors() {
 document.addEventListener("DOMContentLoaded", () => {
     createEditors();
     if (typeof django === "object" && django.jQuery) {
-      django.jQuery(document).on("formset:added", createEditors);
+        django.jQuery(document).on("formset:added", createEditors);
     }
 });
 
