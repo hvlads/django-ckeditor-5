@@ -19,7 +19,7 @@ jobs:
       - run: mypy --non-interactive .
       - run: cp -R django_ckeditor_5 example/blog
       - run: cd example/blog
-      - run: pip install -r requirements.txt
+      - run: pip install -r ../requirements.txt
       - run: pytest .
       - run: shopt -s globstar && pyupgrade --py37-plus **/*.py
       - run: safety check
