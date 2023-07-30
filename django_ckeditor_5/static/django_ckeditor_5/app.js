@@ -3,7 +3,6 @@ import './src/override-django.css';
 
 
 let editors = [];
-let editorsIds = [];
 
 function getCookie(name) {
     let cookieValue = null;
@@ -23,16 +22,19 @@ function getCookie(name) {
 function createEditors() {
     const allEditors = document.querySelectorAll('.django_ckeditor_5');
     for (let i = 0; i < allEditors.length; ++i) {
-        const script_id = `${allEditors[i].id}_script`;
-        if (editorsIds.indexOf(script_id) !== -1) {
+        if (
+            allEditors[i].id.indexOf('__prefix__') !== -1 ||
+            allEditors[i].getAttribute('data-processed') === '1'
+        ) {
             continue;
         }
+        const script_id = `${allEditors[i].id}_script`;
         allEditors[i].nextSibling.remove();
         const upload_url = document.getElementById(
-            `ck-editor-5-upload-url-${script_id}`
+            `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
         const csrf_cookie_name = document.getElementById(
-            `ck-editor-5-upload-url-${script_id}`
+            `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
         document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
         const config = JSON.parse(
@@ -55,7 +57,7 @@ function createEditors() {
         ).then(editor => {
             if (editor.plugins.has('WordCount')) {
                 const wordCountPlugin = editor.plugins.get('WordCount');
-                const wordCountWrapper = document.getElementById(`word-count-${script_id}`);
+                const wordCountWrapper = document.getElementById(`${script_id}-word-count`);
                 wordCountWrapper.innerHTML = '';
                 wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             }
@@ -63,7 +65,7 @@ function createEditors() {
         }).catch(error => {
             console.error((error));
         });
-        editorsIds.push(script_id);
+        allEditors[i].setAttribute('data-processed', '1');
     }
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;
