@@ -44,7 +44,7 @@ repository = "https://github.com/hvlads/django-ckeditor-5"
 
 [project.optional-dependencies]
 dev = [
-  'bandit == 1.7.4',
+  'bandit[toml] == 1.7.5',
   'black == 22.12.0',
   'codespell == 2.2.2',
   'coverage == 6.5.0',
