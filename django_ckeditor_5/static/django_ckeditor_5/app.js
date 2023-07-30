@@ -36,7 +36,11 @@ function createEditors() {
         const csrf_cookie_name = document.getElementById(
             `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
-        document.querySelector(`[for$="${allEditors[i].id}"]`).style.float = 'none';
+        const labelElement = document.querySelector(`[for$="${allEditors[i].id}"]`);
+        if (labelElement) {
+            labelElement.style.float = 'none';
+        }
+
         const config = JSON.parse(
             document.getElementById(script_id).textContent,
             (key, value) => {
