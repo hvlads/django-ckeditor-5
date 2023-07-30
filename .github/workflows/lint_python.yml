@@ -8,18 +8,15 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: pip install --upgrade pip setuptools
+      - run: pip install --upgrade pip setuptools ruff
       - run: pip install -e ".[dev]"
-      - run: bandit --configfile pyproject.toml --recursive .
       - run: black --check .
       - run: codespell --ignore-words-list="ro" --skip="*.json,*.lock,./.git"
-      - run: flake8 .
-      - run: isort --check-only  .
+      - run: ruff --format=github .
       - run: pip install --editable .
       - run: mypy --non-interactive .
       - run: cp -R django_ckeditor_5 example/blog
       - run: cd example
       - run: pip install -e ".[dev]"
       - run: pytest example/blog
-      - run: shopt -s globstar && pyupgrade --py37-plus **/*.py
       - run: safety check
