@@ -52,7 +52,7 @@ class CKEditor5Widget(forms.Widget):
         js = ["django_ckeditor_5/dist/bundle.js", ]
         configs = getattr(settings, "CKEDITOR_5_CONFIGS", None)
         if configs is not None:
-            for config in configs.keys():
+            for config in configs:
                 language = configs[config].get('language')
                 if language:
                     if isinstance(language, str) and language != "en":
