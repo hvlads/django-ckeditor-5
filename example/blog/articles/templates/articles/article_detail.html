@@ -23,7 +23,7 @@
     </div>
     <form method="POST">
         {% csrf_token %}
-        {{ form }}
+        {{ form.text }}
         <button type="submit">Submit comment</button>
     </form>
 {% endblock %}
