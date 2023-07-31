@@ -22,6 +22,7 @@
     "@ckeditor/ckeditor5-font": "^38.1.1",
     "@ckeditor/ckeditor5-heading": "^38.1.1",
     "@ckeditor/ckeditor5-highlight": "^38.1.1",
+    "@ckeditor/ckeditor5-horizontal-line": "^38.1.1",
     "@ckeditor/ckeditor5-html-support": "^38.1.1",
     "@ckeditor/ckeditor5-image": "^38.1.1",
     "@ckeditor/ckeditor5-indent": "^38.1.1",
