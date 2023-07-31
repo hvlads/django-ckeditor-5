@@ -191,7 +191,9 @@ Includes the following ckeditor5 plugins:
             ImageInsert,
             WordCount,
             Mention,
-            Style
+            Style,
+            HorizontalLine,
+            LinkImage
 
 
 Examples
