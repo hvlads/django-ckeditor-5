@@ -175,6 +175,7 @@ CKEDITOR_5_CONFIGS = {
         "toolbar": {
             "items": [
                 "heading",
+                "horizontalLine",
                 "codeBlock",
                 "|",
                 "outdent",
@@ -195,6 +196,7 @@ CKEDITOR_5_CONFIGS = {
                 "todoList",
                 "|",
                 "blockQuote",
+                "linkImage",
                 "insertImage",
                 "|",
                 "fontSize",
