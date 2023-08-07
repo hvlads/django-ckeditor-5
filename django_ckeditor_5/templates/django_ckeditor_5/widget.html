@@ -6,4 +6,4 @@
 {% endif %}
 <input type="hidden" id="{{script_id}}-ck-editor-5-upload-url" data-upload-url="{{upload_url}}" data-csrf_cookie_name="{{ csrf_cookie_name }}">
 
-<span>{{ config|json_script:script_id }}</span>
+<span id="{{script_id}}-span">{{ config|json_script:script_id }}</span>
