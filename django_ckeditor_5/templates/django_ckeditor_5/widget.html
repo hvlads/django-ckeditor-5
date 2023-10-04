@@ -6,6 +6,6 @@
 {{ errors }}
 {% endif %}
 </div>
-<input type="hidden" id="{{script_id}}-ck-editor-5-upload-url" data-upload-url="{{upload_url}}" data-csrf_cookie_name="{{ csrf_cookie_name }}">
+<input type="hidden" id="{{script_id}}-ck-editor-5-upload-url" data-upload-url="{{upload_url}}" data-upload-file-types="{{upload_file_types}}" data-csrf_cookie_name="{{ csrf_cookie_name }}">
 
 <span id="{{script_id}}-span">{{ config|json_script:script_id }}</span>
