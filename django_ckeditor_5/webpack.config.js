@@ -2,8 +2,8 @@
 
 const path = require( 'path' );
 const { styles } = require( '@ckeditor/ckeditor5-dev-utils' );
+const { CKEditorTranslationsPlugin } = require( '@ckeditor/ckeditor5-dev-translations' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
-const CKEditorWebpackPlugin = require( '@ckeditor/ckeditor5-dev-webpack-plugin' );
 
 module.exports = {
     entry: './static/django_ckeditor_5/app.js',
@@ -13,7 +13,7 @@ module.exports = {
     },
 
     plugins: [
-        new CKEditorWebpackPlugin( {
+        new CKEditorTranslationsPlugin( {
             // The main language that will be built into the main bundle.
             language: 'en',
 
@@ -22,7 +22,7 @@ module.exports = {
             // The bundle is optimized for one language when this option is omitted.
             additionalLanguages: 'all',
 
-            // For more advanced options see https://github.com/ckeditor/ckeditor5-dev/tree/master/packages/ckeditor5-dev-webpack-plugin.
+            // For more advanced options see https://github.com/ckeditor/ckeditor5-dev/tree/master/packages/ckeditor5-dev-translations.
         } ),
         new MiniCssExtractPlugin( {
             filename: 'styles.css'
