@@ -3,6 +3,7 @@ from django.conf import settings
 from django.forms.renderers import get_default_renderer
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+import json
 
 if get_version() >= "4.0":
     from django.utils.translation import gettext_lazy as _

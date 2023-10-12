@@ -33,6 +33,9 @@ function createEditors() {
         const upload_url = document.getElementById(
             `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
+        const upload_file_types = JSON.parse(document.getElementById(
+            `${script_id}-ck-editor-5-upload-url`
+        ).getAttribute('data-upload-file-types'));
         const csrf_cookie_name = document.getElementById(
             `${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
@@ -51,10 +54,16 @@ function createEditors() {
             }
         );
         config.simpleUpload = {
-            'uploadUrl': upload_url, 'headers': {
+            'uploadUrl': upload_url,
+            'headers': {
                 'X-CSRFToken': getCookie(csrf_cookie_name),
-            }
+            },
         };
+
+        config.fileUploader = {
+            'fileTypes': upload_file_types
+        };
+
         ClassicEditor.create(
             allEditors[i],
             config
