@@ -41,7 +41,8 @@
     "@ckeditor/ckeditor5-theme-lark": "^39.0.2",
     "@ckeditor/ckeditor5-ui": "^39.0.2",
     "@ckeditor/ckeditor5-upload": "^39.0.2",
-    "@ckeditor/ckeditor5-word-count": "^39.0.2"
+    "@ckeditor/ckeditor5-word-count": "^39.0.2",
+    "@liqd/ckeditor5-file-uploader": "github:liqd/ckeditor5-file-uploader"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^39.0.2",
