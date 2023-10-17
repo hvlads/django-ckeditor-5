@@ -45,6 +45,7 @@ import { Style } from '@ckeditor/ckeditor5-style';
 import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import {LinkImage} from '@ckeditor/ckeditor5-link';
 import { FileUploader } from '@liqd/ckeditor5-file-uploader';
+import { Accordion } from '@liqd/ckeditor5-accordion';
 
 
 export default class ClassicEditor extends ClassicEditorBase {
@@ -95,4 +96,5 @@ ClassicEditor.builtinPlugins = [
     HorizontalLine,
     LinkImage,
     FileUploader,
+    Accordion
 ];

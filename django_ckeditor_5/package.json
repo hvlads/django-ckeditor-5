@@ -42,6 +42,7 @@
     "@ckeditor/ckeditor5-ui": "^40.0.0",
     "@ckeditor/ckeditor5-upload": "^40.0.0",
     "@ckeditor/ckeditor5-word-count": "^40.0.0",
+    "@liqd/ckeditor5-accordion": "github:liqd/ckeditor5-accordion",
     "@liqd/ckeditor5-file-uploader": "github:liqd/ckeditor5-file-uploader"
   },
   "devDependencies": {
