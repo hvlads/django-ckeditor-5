@@ -20,6 +20,7 @@ import List from '@ckeditor/ckeditor5-list/src/list';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Font from '@ckeditor/ckeditor5-font/src/font';
@@ -92,5 +93,6 @@ ClassicEditor.builtinPlugins = [
     Mention,
     Style,
     HorizontalLine,
-    LinkImage
+    LinkImage,
+    Base64UploadAdapter
 ];
