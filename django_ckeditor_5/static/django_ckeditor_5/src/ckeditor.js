@@ -44,6 +44,8 @@ import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import { Style } from '@ckeditor/ckeditor5-style';
 import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import {LinkImage} from "@ckeditor/ckeditor5-link";
+import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
+
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -92,5 +94,6 @@ ClassicEditor.builtinPlugins = [
     Mention,
     Style,
     HorizontalLine,
-    LinkImage
+    LinkImage,
+    HtmlEmbed
 ];
