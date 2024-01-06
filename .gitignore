@@ -30,3 +30,4 @@ django_ckeditor_5/static/django_ckeditor_5/dist/*.map
 django_ckeditor_5/static/django_ckeditor_5/dist
 build.sh
 lint.sh
+venv
