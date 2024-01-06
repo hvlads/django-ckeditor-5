@@ -1,22 +1,53 @@
 name: lint_python
-on: [pull_request, push]
+
+on:
+  pull_request:
+  push:
+
 jobs:
   lint_python:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: pip install --upgrade pip setuptools ruff
-      - run: pip install -e ".[dev]"
-      - run: black --check .
-      - run: codespell --ignore-words-list="ro" --skip="*.json,*.lock,./.git"
-      - run: ruff check .
-      - run: pip install --editable .
-      - run: mypy --non-interactive .
-      - run: cp -R django_ckeditor_5 example/blog
-      - run: cd example
-      - run: pip install -e ".[dev]"
-      - run: pytest example/blog
-      - run: safety check
+
+      - name: Upgrade pip and install dependencies
+        run: |
+          pip install --upgrade pip setuptools ruff
+          pip install -e ".[dev]"
+
+      - name: Code formatting check
+        run: black --check .
+
+      - name: Spell check
+        run: codespell --ignore-words-list="ro" --skip="*.json,*.lock,./.git"
+
+      - name: Ruff check
+        run: ruff check .
+
+      - name: Type checking with mypy
+        run: mypy --non-interactive .
+
+      - name: Copy CKEditor files
+        run: cp -R django_ckeditor_5 example/blog
+
+      - name: Change directory to example
+        run: cd example
+
+      - name: Install dependencies in example
+        run: pip install -e ".[dev]"
+
+      - name: Run tests with pytest
+        run: pytest example/blog
+
+      - name: Upgrade pip for safety check
+        run: pip install --upgrade pip
+
+      - name: Check for vulnerabilities
+        run: safety check
+
