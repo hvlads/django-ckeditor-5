@@ -45,8 +45,21 @@ jobs:
       - name: Run tests with pytest
         run: pytest example/blog
 
+      - name: Clean build environment
+        run: |
+          rm -rf __pycache__/
+          rm -rf .pytest_cache/
+          rm -rf example/__pycache__/
+          rm -rf example/.pytest_cache/
+
+      - name: Print Python version
+        run: python --version
+
       - name: Print pip version
         run: pip --version
+
+      - name: List installed pip packages
+        run: pip list
 
       - name: Check for vulnerabilities
         run: safety check
