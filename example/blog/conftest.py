@@ -12,11 +12,11 @@ def file():
     return open(file_path, "rb")
 
 
-@pytest.fixture
+@pytest.fixture()
 def ckeditor5_field():
     return CKEditor5Field()
 
 
-@pytest.fixture
+@pytest.fixture()
 def upload_file_form():
     return UploadFileForm()
