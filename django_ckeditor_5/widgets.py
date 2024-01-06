@@ -37,28 +37,28 @@ class CKEditor5Widget(forms.Widget):
 
     def format_error(self, ex):
         return "{} {}".format(
-            _("Check the correct settings.CKEDITOR_5_CONFIGS "), str(ex)
+            _("Check the correct settings.CKEDITOR_5_CONFIGS "), str(ex),
         )
 
     class Media:
         css = {
             "all": [
                 "django_ckeditor_5/dist/styles.css",
-            ]
+            ],
         }
         custom_css = getattr(settings, "CKEDITOR_5_CUSTOM_CSS", None)
         if custom_css:
             css["all"].append(custom_css)
-        js = ["django_ckeditor_5/dist/bundle.js", ]
+        js = ["django_ckeditor_5/dist/bundle.js" ]
         configs = getattr(settings, "CKEDITOR_5_CONFIGS", None)
         if configs is not None:
             for config in configs:
                 language = configs[config].get('language')
                 if language:
                     if isinstance(language, str) and language != "en":
-                        js += [f"django_ckeditor_5/dist/translations/{language}.js", ]
+                        js += [f"django_ckeditor_5/dist/translations/{language}.js" ]
                     elif isinstance(language, dict) and language.get('ui') and language["ui"] != "en":
-                        js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js", ]
+                        js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js" ]
 
     def render(self, name, value, attrs=None, renderer=None):
         context = super().get_context(name, value, attrs)

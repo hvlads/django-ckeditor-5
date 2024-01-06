@@ -9,7 +9,7 @@ keywords = ["CKEditor", "CKEditor5", "Django"]
 license = {text = "BSD-3-Clause"}
 readme = "README.rst"
 requires-python = ">=3.7"
-version = "0.2.10"
+version = "0.2.11"
 
 authors = [
     {"name" = "Vladislav Khoboko", "email" = "vladislah@gmail.com"},
@@ -21,6 +21,7 @@ classifiers = [
         "Framework :: Django :: 2.2",
         "Framework :: Django :: 3.0",
         "Framework :: Django :: 4.0",
+        "Framework :: Django :: 5.0",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
@@ -29,6 +30,7 @@ classifiers = [
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     ]
@@ -146,9 +148,9 @@ select = [
   "W",      # pycodestyle
   "YTT",    # flake8-2020
   # "ANN",  # flake8-annotations
-  # "COM",  # flake8-commas
+  "COM",  # flake8-commas
   # "D",    # pydocstyle
-  # "EM",   # flake8-errmsg
+  "EM",   # flake8-errmsg
   # "NPY",  # NumPy-specific rules
   # "PD",   # pandas-vet
   # "PTH",  # flake8-use-pathlib

@@ -12,7 +12,7 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: black --check .
       - run: codespell --ignore-words-list="ro" --skip="*.json,*.lock,./.git"
-      - run: ruff --format=github .
+      - run: ruff check .
       - run: pip install --editable .
       - run: mypy --non-interactive .
       - run: cp -R django_ckeditor_5 example/blog

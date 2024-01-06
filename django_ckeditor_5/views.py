@@ -31,15 +31,18 @@ def get_storage_class():
         try:
             return import_string(default_storage_setting)
         except ImportError:
-            raise ImproperlyConfigured(f"Invalid default storage class: {default_storage_setting}")
+            error_msg = f"Invalid default storage class: {default_storage_setting}"
+            raise ImproperlyConfigured(error_msg)
     elif default_storage_name:
         try:
             return import_string(default_storage_name)
         except ImportError:
-            raise ImproperlyConfigured(f"Invalid default storage class: {default_storage_name}")
+            error_msg = f"Invalid default storage class: {default_storage_name}"
+            raise ImproperlyConfigured(error_msg)
     else:
-        raise ImproperlyConfigured(
-            "Either CKEDITOR_5_FILE_STORAGE, DEFAULT_FILE_STORAGE, or STORAGES['default'] setting is required.")
+        error_msg = ("Either CKEDITOR_5_FILE_STORAGE, DEFAULT_FILE_STORAGE, "
+                     "or STORAGES['default'] setting is required.")
+        raise ImproperlyConfigured(error_msg)
 
 
 storage = get_storage_class()
