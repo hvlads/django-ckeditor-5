@@ -42,7 +42,7 @@ function createEditors() {
         }
 
         const config = JSON.parse(
-            document.getElementById(script_id).textContent,
+            document.getElementById(`${script_id}-span`).textContent,
             (key, value) => {
                 if (value.toString().includes('/')) {
                     return new RegExp(value.replaceAll('/', ''));
