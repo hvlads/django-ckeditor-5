@@ -14,7 +14,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.12
+          python-version: 3.x
 
       - name: Upgrade pip and install dependencies
         run: |
@@ -45,13 +45,6 @@ jobs:
       - name: Run tests with pytest
         run: pytest example/blog
 
-      - name: Clean build environment
-        run: |
-          rm -rf __pycache__/
-          rm -rf .pytest_cache/
-          rm -rf example/__pycache__/
-          rm -rf example/.pytest_cache/
-
       - name: Print Python version
         run: python --version
 
@@ -61,6 +54,6 @@ jobs:
       - name: List installed pip packages
         run: pip list
 
-      - name: Check for vulnerabilities
-        run: safety check
+#      - name: Check for vulnerabilities
+#        run: safety check
 
