@@ -1,9 +1,11 @@
+<div class="ck-editor-container">
 <textarea  name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
 {% if widget.value %}{{ widget.value }}{% endif %}</textarea>
 <span class="word-count" id="{{script_id}}-word-count"></span>
 {% if errors %}
 {{ errors }}
 {% endif %}
+</div>
 <input type="hidden" id="{{script_id}}-ck-editor-5-upload-url" data-upload-url="{{upload_url}}" data-csrf_cookie_name="{{ csrf_cookie_name }}">
 
 <span>{{ config|json_script:script_id }}</span>
