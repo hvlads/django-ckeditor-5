@@ -79,7 +79,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    },
 }
 
 # Password validation
@@ -272,19 +272,19 @@ CKEDITOR_5_CONFIGS = {
                     "title": "Heading 3",
                     "class": "ck-heading_heading3",
                 },
-            ]
+            ],
         },
         "list": {
             "properties": {
                 "styles": True,
                 "startIndex": True,
                 "reversed": True,
-            }
+            },
         },
         "htmlSupport": {
             "allow": [
-                {"name": "/.*/", "attributes": True, "classes": True, "styles": True}
-            ]
+                {"name": "/.*/", "attributes": True, "classes": True, "styles": True},
+            ],
         },
         "mention": {
             "feeds": [
@@ -299,14 +299,14 @@ CKEDITOR_5_CONFIGS = {
                         "@Ted",
                     ],
                     "minimumCharacters": 1,
-                }
-            ]
+                },
+            ],
         },
         "style": {
             "definitions": [
                 {"name": "Article category", "element": "h3", "classes": ["category"]},
                 {"name": "Info box", "element": "p", "classes": ["info-box"]},
-            ]
+            ],
         },
     },
 }
