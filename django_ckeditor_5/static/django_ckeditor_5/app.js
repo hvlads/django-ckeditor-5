@@ -19,8 +19,30 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function createEditors() {
-    const allEditors = document.querySelectorAll('.django_ckeditor_5');
+/**
+ * Checks whether the element or its children match the query and returns
+ * an array with the matches.
+ * 
+ * @param {!HTMLElement} element
+ * @param {!string} query
+ * 
+ * @returns {array.<HTMLElement>}
+ */
+function resolveElementArray(element, query) {
+    return element.matches(query) ? [element] : [...element.querySelectorAll(query)];
+}
+
+/**
+ * This function initializes the CKEditor inputs within an optional element and
+ * assigns properties necessary for the correct operation
+ * 
+ * @param {HTMLElement} [element=document.body] - The element to search for elements
+ * 
+ * @returns {void}
+ */
+function createEditors(element = document.body) {
+    const allEditors = resolveElementArray(element, '.django_ckeditor_5');
+
     for (let i = 0; i < allEditors.length; ++i) {
         if (
             allEditors[i].id.indexOf('__prefix__') !== -1 ||
@@ -30,19 +52,19 @@ function createEditors() {
         }
         const script_id = `${allEditors[i].id}_script`;
         allEditors[i].nextSibling.remove();
-        const upload_url = document.getElementById(
-            `${script_id}-ck-editor-5-upload-url`
+        const upload_url = element.querySelector(
+            `#${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
-        const csrf_cookie_name = document.getElementById(
-            `${script_id}-ck-editor-5-upload-url`
+        const csrf_cookie_name = element.querySelector(
+            `#${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
-        const labelElement = document.querySelector(`[for$="${allEditors[i].id}"]`);
+        const labelElement = element.querySelector(`[for$="${allEditors[i].id}"]`);
         if (labelElement) {
             labelElement.style.float = 'none';
         }
 
         const config = JSON.parse(
-            document.getElementById(`${script_id}-span`).textContent,
+            element.querySelector(`#${script_id}-span`).textContent,
             (key, value) => {
                 if (value.toString().includes('/')) {
                     return new RegExp(value.replaceAll('/', ''));
@@ -61,7 +83,7 @@ function createEditors() {
         ).then(editor => {
             if (editor.plugins.has('WordCount')) {
                 const wordCountPlugin = editor.plugins.get('WordCount');
-                const wordCountWrapper = document.getElementById(`${script_id}-word-count`);
+                const wordCountWrapper = element.querySelector(`#${script_id}-word-count`);
                 wordCountWrapper.innerHTML = '';
                 wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             }
@@ -75,10 +97,47 @@ function createEditors() {
     window.ClassicEditor = ClassicEditor;
 }
 
+/**
+ * This function filters the list of mutations only by added elements, thus
+ * eliminates the occurrence of text nodes and tags where it does not make sense
+ * to try to use with `QuerySelectorAll()` and `matches()` functions.
+ * 
+ * @param {MutationRecord} recordList - It is the object inside the array
+ * passed to the callback of a MutationObserver.
+ * 
+ * @returns {Array} Array containing filtered nodes.
+ */
+function getAddedNodes(recordList) {
+    return recordList
+        .flatMap(({ addedNodes }) => Array.from(addedNodes))
+        .filter(node => node.nodeType === 1);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     createEditors();
+
     if (typeof django === "object" && django.jQuery) {
         django.jQuery(document).on("formset:added", createEditors);
     }
-});
 
+    const observer = new MutationObserver((mutations) => {
+        let addedNodes = getAddedNodes(mutations);
+
+        addedNodes.forEach(node => {
+          // Initializes editors
+          createEditors(node);
+        });
+    });
+
+    // Configure MutationObserver options
+    const observerOptions = {
+        childList: true,
+        subtree: true,
+    };
+
+    // Selects the parent element where the events occur
+    const mainContent = document.body;
+
+    // Starts to observe the selected father element with the configured options
+    observer.observe(mainContent, observerOptions);
+});
