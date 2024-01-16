@@ -1,10 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.views.generic import FormView
+from django.views.generic import CreateView, FormView, TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from .forms import CommentForm
+from .forms import CommentForm, ArticleForm
 from .models import Article
 
 
@@ -13,6 +13,9 @@ class ArticleListView(ListView):
 
     model = Article
     paginate_by = 100
+    extra_context = {
+        'media': CommentForm().media
+    }
 
 
 class ArticleDetailView(DetailView, FormView):
@@ -35,3 +38,21 @@ class ArticleDetailView(DetailView, FormView):
             comment.save()
         success_url = reverse("article-detail", kwargs={"pk": self.get_object().id})
         return HttpResponseRedirect(success_url)
+
+
+class ArticleCreateView(CreateView):
+    """ Article create view """
+
+    model = Article
+    form_class = ArticleForm
+    template_name = "articles/article_create.html"
+
+    def get_success_url(self):
+        return reverse('article-list')
+
+
+class GetEditorView(TemplateView):
+    template_name = 'articles/dynamic_editor.html'
+    extra_context = {
+        'form': ArticleForm()
+    }
