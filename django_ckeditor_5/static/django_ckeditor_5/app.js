@@ -43,22 +43,22 @@ function resolveElementArray(element, query) {
 function createEditors(element = document.body) {
     const allEditors = resolveElementArray(element, '.django_ckeditor_5');
 
-    for (let i = 0; i < allEditors.length; ++i) {
+    allEditors.forEach(editorEl => {
         if (
-            allEditors[i].id.indexOf('__prefix__') !== -1 ||
-            allEditors[i].getAttribute('data-processed') === '1'
+            editorEl.id.indexOf('__prefix__') !== -1 ||
+            editorEl.getAttribute('data-processed') === '1'
         ) {
-            continue;
+            return
         }
-        const script_id = `${allEditors[i].id}_script`;
-        allEditors[i].nextSibling.remove();
+        const script_id = `${editorEl.id}_script`;
+        editorEl.nextSibling.remove();
         const upload_url = element.querySelector(
             `#${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
         const csrf_cookie_name = element.querySelector(
             `#${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-csrf_cookie_name');
-        const labelElement = element.querySelector(`[for$="${allEditors[i].id}"]`);
+        const labelElement = element.querySelector(`[for$="${editorEl.id}"]`);
         if (labelElement) {
             labelElement.style.float = 'none';
         }
@@ -78,7 +78,7 @@ function createEditors(element = document.body) {
             }
         };
         ClassicEditor.create(
-            allEditors[i],
+            editorEl,
             config
         ).then(editor => {
             if (editor.plugins.has('WordCount')) {
@@ -91,8 +91,9 @@ function createEditors(element = document.body) {
         }).catch(error => {
             console.error((error));
         });
-        allEditors[i].setAttribute('data-processed', '1');
-    }
+        editorEl.setAttribute('data-processed', '1');
+    });
+
     window.editors = editors;
     window.ClassicEditor = ClassicEditor;
 }
