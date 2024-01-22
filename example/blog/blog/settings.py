@@ -281,6 +281,7 @@ CKEDITOR_5_CONFIGS = {
                 "reversed": True,
             },
         },
+        "link": {"defaultProtocol": "https://"},
         "htmlSupport": {
             "allow": [
                 {"name": "/.*/", "attributes": True, "classes": True, "styles": True},
