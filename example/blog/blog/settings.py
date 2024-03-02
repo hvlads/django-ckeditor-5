@@ -177,6 +177,7 @@ CKEDITOR_5_CONFIGS = {
                 "heading",
                 "horizontalLine",
                 "codeBlock",
+                "htmlEmbed",
                 "|",
                 "outdent",
                 "indent",
