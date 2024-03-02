@@ -2,7 +2,7 @@ from django import forms
 
 from django_ckeditor_5.widgets import CKEditor5Widget
 
-from .models import Comment, Article
+from .models import Article, Comment
 
 
 class CommentForm(forms.ModelForm):
@@ -26,7 +26,7 @@ class CommentForm(forms.ModelForm):
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'text']
+        fields = ["title", "text"]
         widgets = {
             "text": CKEditor5Widget(
                 attrs={"class": "django_ckeditor_5"},
