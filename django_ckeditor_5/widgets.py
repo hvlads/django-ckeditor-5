@@ -3,6 +3,7 @@ from django.conf import settings
 from django.forms.renderers import get_default_renderer
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.utils.translation import get_language
 
 if get_version() >= "4.0":
     from django.utils.translation import gettext_lazy as _
@@ -49,19 +50,30 @@ class CKEditor5Widget(forms.Widget):
         custom_css = getattr(settings, "CKEDITOR_5_CUSTOM_CSS", None)
         if custom_css:
             css["all"].append(custom_css)
-        js = ["django_ckeditor_5/dist/bundle.js" ]
+        js = ["django_ckeditor_5/dist/bundle.js"]
         configs = getattr(settings, "CKEDITOR_5_CONFIGS", None)
         if configs is not None:
             for config in configs:
                 language = configs[config].get('language')
                 if language:
-                    if isinstance(language, str) and language != "en":
-                        js += [f"django_ckeditor_5/dist/translations/{language}.js" ]
-                    elif isinstance(language, dict) and language.get('ui') and language["ui"] != "en":
-                        js += [f"django_ckeditor_5/dist/translations/{language['ui']}.js" ]
+                    languages = []
+                    if isinstance(language, dict) and language.get('ui'):
+                        language = language.get('ui')
+                    elif isinstance(language, str):
+                        languages.append(language)
+                    elif isinstance(language, list):
+                        languages = language
+                    for lang in languages:
+                        if lang != "en":
+                            js += [f"django_ckeditor_5/dist/translations/{lang}.js"]
 
     def render(self, name, value, attrs=None, renderer=None):
         context = super().get_context(name, value, attrs)
+        use_language = getattr(settings, "CKEDITOR_5_USER_LANGUAGE", False)
+        if use_language:
+            language = get_language().lower()
+            if language:
+                self.config["language"] = language
 
         if renderer is None:
             renderer = get_default_renderer()

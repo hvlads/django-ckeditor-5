@@ -243,6 +243,32 @@ Custom storage example:
           location = os.path.join(settings.MEDIA_ROOT, "django_ckeditor_5")
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
 
+
+Changing the language:
+^^^^^^^^^^^^^^^^^^^^^^
+You can change the language via the ``language`` key in the config
+
+ .. code-block:: python
+
+      CKEDITOR_5_CONFIGS = {
+        'default': {
+            'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                        'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
+            'language': 'de',
+        },
+
+``language`` can be either:
+
+1. a string containing a single language
+2. a list of languages
+3. a dict ``{"ui": <a string (1) or a list of languages (2)>}``
+
+If you want the language to change with the user language in django
+you can add ``CKEDITOR_5_USER_LANGUAGE=True`` to your django settings.
+Additionally you will have to list all available languages in the ckeditor
+config as shown above.
+
+
 Installing from GitHub:
 ^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
