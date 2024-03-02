@@ -44,8 +44,10 @@ function createEditors() {
         const config = JSON.parse(
             document.getElementById(`${script_id}-span`).textContent,
             (key, value) => {
-                if (value.toString().includes('/')) {
-                    return new RegExp(value.replaceAll('/', ''));
+                var match = value.toString().match(new RegExp('^/(.*?)/([gimy]*)$'));
+                if (match) {
+                   var regex = new RegExp(match[1], match[2]);
+                   return regex;
                 }
                 return value;
             }
