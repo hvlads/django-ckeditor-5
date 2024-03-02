@@ -26,7 +26,7 @@ class CommentForm(forms.ModelForm):
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ['title', 'text']
+        fields = ["title", "text"]
         widgets = {
             "text": CKEditor5Widget(
                 attrs={"class": "django_ckeditor_5"},

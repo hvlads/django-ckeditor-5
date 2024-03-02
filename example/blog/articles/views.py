@@ -13,9 +13,7 @@ class ArticleListView(ListView):
 
     model = Article
     paginate_by = 100
-    extra_context = {
-        'media': CommentForm().media
-    }
+    extra_context = {"media": CommentForm().media}
 
 
 class ArticleDetailView(DetailView, FormView):
@@ -41,18 +39,16 @@ class ArticleDetailView(DetailView, FormView):
 
 
 class ArticleCreateView(CreateView):
-    """ Article create view """
+    """Article create view"""
 
     model = Article
     form_class = ArticleForm
     template_name = "articles/article_create.html"
 
     def get_success_url(self):
-        return reverse('article-list')
+        return reverse("article-list")
 
 
 class GetEditorView(TemplateView):
-    template_name = 'articles/dynamic_editor.html'
-    extra_context = {
-        'form': ArticleForm()
-    }
+    template_name = "articles/dynamic_editor.html"
+    extra_context = {"form": ArticleForm()}
