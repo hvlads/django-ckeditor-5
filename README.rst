@@ -193,7 +193,8 @@ Includes the following ckeditor5 plugins:
             Mention,
             Style,
             HorizontalLine,
-            LinkImage
+            LinkImage,
+            HtmlEmbed
 
 
 Examples
