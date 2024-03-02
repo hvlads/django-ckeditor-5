@@ -8,4 +8,31 @@
             <li>No articles yet.</li>
         {% endfor %}
     </div>
+    <div>
+        <button onclick="create_article()">Create article</button>
+    </div>
+    <div id="dynamicEditor"></div>
+
+    {# scripts to handle editor behavior #}
+    {{media}}
+    <script>
+        const wrapper = document.getElementById('dynamicEditor');
+
+        function create_article(){
+            fetch("{% url 'get-editor' %}")
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(html => {
+                wrapper.innerHTML = html;
+            })
+            .catch(error => console.error('Request error:', error));
+        }
+        function dispose(){
+            wrapper.innerHTML = "";
+        }
+    </script>
 {% endblock %}

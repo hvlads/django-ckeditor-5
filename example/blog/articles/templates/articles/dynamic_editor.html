@@ -1,0 +1,13 @@
+<div style="position: absolute;backdrop-filter: blur(10px);top: 0;bottom: 0;left: 0;right: 0;padding-inline: 100px;padding-block: 50px;">
+    <h1>Create Article</h1>
+    <form action="{% url 'article-create' %}" method="post" id="createArticleForm"
+          enctype="multipart/form-data"
+    >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button onclick="dispose()" id="cancelBtn" style="padding: 10px;">
+            Cancel
+        </button>
+        <input type="submit" value="submit" style="float: right;padding: 10px;">
+    </form>
+</div>
