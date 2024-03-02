@@ -4,7 +4,7 @@ from django.views.generic import CreateView, FormView, TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from .forms import CommentForm, ArticleForm
+from .forms import ArticleForm, CommentForm
 from .models import Article
 
 

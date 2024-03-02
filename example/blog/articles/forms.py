@@ -2,7 +2,7 @@ from django import forms
 
 from django_ckeditor_5.widgets import CKEditor5Widget
 
-from .models import Comment, Article
+from .models import Article, Comment
 
 
 class CommentForm(forms.ModelForm):
