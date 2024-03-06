@@ -38,7 +38,8 @@ class CKEditor5Widget(forms.Widget):
 
     def format_error(self, ex):
         return "{} {}".format(
-            _("Check the correct settings.CKEDITOR_5_CONFIGS "), str(ex),
+            _("Check the correct settings.CKEDITOR_5_CONFIGS "),
+            str(ex),
         )
 
     class Media:
@@ -54,11 +55,11 @@ class CKEditor5Widget(forms.Widget):
         configs = getattr(settings, "CKEDITOR_5_CONFIGS", None)
         if configs is not None:
             for config in configs:
-                language = configs[config].get('language')
+                language = configs[config].get("language")
                 if language:
                     languages = []
-                    if isinstance(language, dict) and language.get('ui'):
-                        language = language.get('ui')
+                    if isinstance(language, dict) and language.get("ui"):
+                        language = language.get("ui")
                     elif isinstance(language, str):
                         languages.append(language)
                     elif isinstance(language, list):
@@ -80,7 +81,11 @@ class CKEditor5Widget(forms.Widget):
 
         context["config"] = self.config
         context["script_id"] = "{}{}".format(attrs["id"], "_script")
-        context["upload_url"] = reverse("ck_editor_5_upload_file")
+        context["upload_url"] = reverse(
+            getattr(
+                settings, "CKEDITOR_5_UPLOAD_IMAGE_URL_NAME", "ck_editor_5_upload_image"
+            )
+        )
         context["csrf_cookie_name"] = settings.CSRF_COOKIE_NAME
         if self._config_errors:
             context["errors"] = ErrorList(self._config_errors)
