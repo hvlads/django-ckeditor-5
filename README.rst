@@ -245,6 +245,52 @@ Custom storage example:
           base_url = urljoin(settings.MEDIA_URL, "django_ckeditor_5/")
 
 
+Rename the uploaded images using uuid:
+You can rename the images using uuid value and maintaning the extension in lower case. Example if your uploaded image original name was `my-image.JPG` now would be `acb34ded-f203-431a-9005-387cc24a892e.jpg`
+
+You need to specity the settings variable with True value
+^^^^^^^^^^^^^^^^^^^^^^^
+  .. code-block:: python
+
+      CKEDITOR_5_UPLOAD_IMAGES_RENAME_UUID = True
+
+
+Custom upload_url example:
+You can use a custom upload_url to satisfy your needs.
+
+You need to create a custom view class that extends UploadImageView
+^^^^^^^^^^^^^^^^^^^^^^^
+  .. code-block:: python
+
+      import os
+      import uuid
+      from django_ckeditor_5.views import UploadImageView
+
+
+      class CustomUploadImageView(UploadImageView):
+          """Custom View to upload images for django_ckeditor_5 images."""
+          def handle_uploaded_file(self, f):
+              fs = self.get_storage_class()()
+              filename = f.name.lower()
+              # Here you can apply custom actions before the file is saved
+              if getattr(settings, "CKEDITOR_5_UPLOAD_IMAGES_RENAME_UUID", None) is True:
+                  new_file_name = f"{uuid.uuid4()}{os.path.splitext(filename)[1]}"
+                  filename = fs.save(new_file_name, f)
+              # Here you can apply custom actions after the file is saved
+              return fs.url(filename)
+
+You need to add the custom url to your app urls.py file
+^^^^^^^^^^^^^^^^^^^^^^^
+  .. code-block:: python
+      from . import views # or from .views import CkUploadImageView
+      path("custom_image_upload/", views.CkUploadImageView.as_view(),name="ck_editor_5_upload_image",),
+
+You need to specify in the settings the CKEDITOR_5_UPLOAD_IMAGE_URL_NAME variable with the name of your custom_image_upload url view
+^^^^^^^^^^^^^^^^^^^^^^^
+  .. code-block:: python
+      CKEDITOR_5_UPLOAD_IMAGE_URL_NAME = "your_app_name:ck_editor_5_upload_image"
+
+
 Changing the language:
 ^^^^^^^^^^^^^^^^^^^^^^
 You can change the language via the ``language`` key in the config
