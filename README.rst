@@ -284,12 +284,14 @@ You need to create a custom view class that extends UploadImageView
 You need to add the custom url to your app urls.py file
 
   .. code-block:: python
+
       from . import views # or from .views import CkUploadImageView
       path("custom_image_upload/", views.CkUploadImageView.as_view(),name="ck_editor_5_upload_image",),
 
 You need to specify in the settings the CKEDITOR_5_UPLOAD_IMAGE_URL_NAME variable with the name of your custom_image_upload url view
 
   .. code-block:: python
+
       CKEDITOR_5_UPLOAD_IMAGE_URL_NAME = "your_app_name:ck_editor_5_upload_image"
 
 
