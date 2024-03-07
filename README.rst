@@ -246,20 +246,20 @@ Custom storage example:
 
 
 Rename the uploaded images using uuid:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 You can rename the images using uuid value and maintaning the extension in lower case. Example if your uploaded image original name was `my-image.JPG` now would be `acb34ded-f203-431a-9005-387cc24a892e.jpg`
 
 You need to specity the settings variable with True value
-^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
 
       CKEDITOR_5_UPLOAD_IMAGES_RENAME_UUID = True
 
 
 Custom upload_url example:
+^^^^^^^^^^^^^^^^^^^^^^^
 You can use a custom upload_url to satisfy your needs.
 
 You need to create a custom view class that extends UploadImageView
-^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
 
       import os
@@ -280,13 +280,11 @@ You need to create a custom view class that extends UploadImageView
               return fs.url(filename)
 
 You need to add the custom url to your app urls.py file
-^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
       from . import views # or from .views import CkUploadImageView
       path("custom_image_upload/", views.CkUploadImageView.as_view(),name="ck_editor_5_upload_image",),
 
 You need to specify in the settings the CKEDITOR_5_UPLOAD_IMAGE_URL_NAME variable with the name of your custom_image_upload url view
-^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: python
       CKEDITOR_5_UPLOAD_IMAGE_URL_NAME = "your_app_name:ck_editor_5_upload_image"
 
