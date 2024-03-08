@@ -25,9 +25,10 @@ class NoImageException(Exception):
 
 class UploadImageView(View):
     def post(self, request, *args, **kwargs):
-        if request.user.is_staff or (
-            not self.request.user.is_staff
-            and getattr(settings, "CKEDITOR_5_UPLOAD_IMAGES_ALLOW_ALL_USERS", None)
+        if (
+            request.user.is_staff
+            or getattr(settings, "CKEDITOR_5_UPLOAD_IMAGES_ALLOW_ALL_USERS", None)
+            is True
         ):
             form = UploadFileForm(request.POST, request.FILES)
             try:
