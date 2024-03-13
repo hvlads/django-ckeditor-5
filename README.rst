@@ -274,7 +274,7 @@ If you want to use a custom upload_url, You need to create a custom view class t
           def handle_uploaded_file(self, f):
               fs = self.get_storage_class()()
               filename = f.name.lower()
-              # Here you can apply custom actions before the file is saved
+              # Here you can apply custom actions before the file is saved. For example optimize the image size
               if getattr(settings, "CKEDITOR_5_UPLOAD_IMAGES_RENAME_UUID", None) is True:
                   new_file_name = f"{uuid.uuid4()}{os.path.splitext(filename)[1]}"
                   filename = fs.save(new_file_name, f)
