@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from .views import UploadImageView
 
 urlpatterns = [
-    path("image_upload/", views.upload_file, name="ck_editor_5_upload_file"),
+    path("image_upload/", UploadImageView.as_view(), name="ck_editor_5_upload_image"),
 ]
