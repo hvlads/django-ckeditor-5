@@ -258,9 +258,9 @@ You need to specity the settings variable with True value
 
 Custom upload_url example:
 ^^^^^^^^^^^^^^^^^^^^^^^
-You can use a custom upload_url to satisfy your needs.
+You can use a custom upload_url to satisfy your business logic needs.
 
-You need to create a custom view class that extends UploadImageView
+If you want to use a custom upload_url, You need to create a custom view class that extends UploadImageView
 
   .. code-block:: python
 
@@ -285,10 +285,10 @@ You need to add the custom url to your app urls.py file
 
   .. code-block:: python
 
-      from . import views # or from .views import CkUploadImageView
-      path("custom_image_upload/", views.CkUploadImageView.as_view(),name="ck_editor_5_upload_image",),
+      from . import views # or from .views import CustomUploadImageView
+      path("custom_image_upload/", views.CustomUploadImageView.as_view(),name="ck_editor_5_upload_image",),
 
-You need to specify in the settings the CKEDITOR_5_UPLOAD_IMAGE_URL_NAME variable with the name of your custom_image_upload url view
+Finally You need to specify in the settings the CKEDITOR_5_UPLOAD_IMAGE_URL_NAME variable with the name of your custom_image_upload url view
 
   .. code-block:: python
 
