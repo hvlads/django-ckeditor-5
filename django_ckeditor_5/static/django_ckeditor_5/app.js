@@ -1,8 +1,12 @@
 import ClassicEditor from './src/ckeditor';
 import './src/override-django.css';
 
-
-let editors = [];
+window.ClassicEditor = ClassicEditor;
+window.ckeditorRegisterCallback = registerCallback;
+window.ckeditorUnregisterCallback = unregisterCallback;
+window.editors = {};
+let editors = {};
+let callbacks = {};
 
 function getCookie(name) {
     let cookieValue = null;
@@ -98,15 +102,16 @@ function createEditors(element = document.body) {
                 wordCountWrapper.innerHTML = '';
                 wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             }
-            editors.push(editor);
+            editors[editorEl.id] = editor;
+            if (callbacks[editorEl.id]) {
+                    callbacks[editorEl.id](editor);
+                }
         }).catch(error => {
             console.error((error));
         });
         editorEl.setAttribute('data-processed', '1');
     });
-
     window.editors = editors;
-    window.ClassicEditor = ClassicEditor;
 }
 
 /**
@@ -123,6 +128,25 @@ function getAddedNodes(recordList) {
     return recordList
         .flatMap(({ addedNodes }) => Array.from(addedNodes))
         .filter(node => node.nodeType === 1);
+}
+
+/**
+ * Register a callback for when an editor with `id` is created.
+ *
+ * @param {!string} id - the id of the ckeditor element.
+ * @callback callback - the callback function to be invoked.
+ */
+function registerCallback(id, callback) {
+    callbacks[id] = callback;
+}
+
+/**
+ * Unregister a previously registered callback.
+ *
+ * @param {!string} id - the id of the ckeditor element.
+ */
+function unregisterCallback(id) {
+    callbacks[id] = null;
 }
 
 document.addEventListener("DOMContentLoaded", () => {

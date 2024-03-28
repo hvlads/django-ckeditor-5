@@ -284,6 +284,56 @@ you can add ``CKEDITOR_5_USER_LANGUAGE=True`` to your django settings.
 Additionally you will have to list all available languages in the ckeditor
 config as shown above.
 
+Creating a CKEditor5 instance from javascript:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To create a ckeditor5 instance dynamically from javascript you can use the
+``ClassicEditor`` class exposed through the ``window`` global variable.
+
+  .. code-block:: javascript
+
+    const config = {};
+    window.ClassicEditor
+       .create( document.querySelector( '#editor' ), config )
+       .catch( error => {
+           console.error( error );
+       } );
+    }
+
+Alternatively, you can create a form with the following structure:
+
+  .. code-block:: html
+
+    <form method="POST">
+        <div class="ck-editor-container">
+            <textarea id="id_text" name="text" class="django_ckeditor_5" >
+            </textarea>
+            <div></div> <!-- this div or any empty element is required -->
+            <span class="word-count" id="id_text_script-word-count"></span>
+       </div>
+       <input type="hidden" id="id_text_script-ck-editor-5-upload-url" data-upload-url="/ckeditor5/image_upload/" data-csrf_cookie_name="new_csrf_cookie_name">
+       <span id="id_text_script-span"><script id="id_text_script" type="application/json">{your ckeditor config}</script></span>
+    </form>
+
+The ckeditor will be automatically created once the form has been added to the
+DOM.
+
+To access a ckeditor instance you can either get them through ``window.editors``
+
+  .. code-block:: javascript
+
+    const editor = windows.editors["<id of your field>"];
+
+or by registering a callback
+
+  .. code-block:: javascript
+
+    //register callback
+    window.ckeditorRegisterCallback("<id of your field>", function(editor) {
+      // do something with editor
+    });
+    // unregister callback
+    window.ckeditorUnregisterCallback("<id of your field>");
+
 
 Allow file uploading as link:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
