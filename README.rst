@@ -226,6 +226,21 @@ Example of using a widget in a form:
                     )
                 }
 
+Example of using a widget in a template:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .. code-block:: python
+
+    {% extends 'base.html' %}
+    {% block header %}
+        {{ form.media }} # Required for styling/js to make ckeditor5 work
+    {% endblock %}
+    {% block content %}
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit article">
+        </form>
+    {% endblock %}
 
 Custom storage example:
 ^^^^^^^^^^^^^^^^^^^^^^^
