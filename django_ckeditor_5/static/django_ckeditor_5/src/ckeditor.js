@@ -46,6 +46,8 @@ import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import {LinkImage} from "@ckeditor/ckeditor5-link";
 import {HtmlEmbed} from "@ckeditor/ckeditor5-html-embed";
 import { FullPage } from '@ckeditor/ckeditor5-html-support';
+import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
+import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -96,5 +98,7 @@ ClassicEditor.builtinPlugins = [
     HorizontalLine,
     LinkImage,
     HtmlEmbed,
-    FullPage
+    FullPage,
+    SpecialCharacters,
+    SpecialCharactersEssentials,
 ];
