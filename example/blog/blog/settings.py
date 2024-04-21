@@ -209,7 +209,7 @@ CKEDITOR_5_CONFIGS = {
                 "insertTable",
                 "sourceEditing",
                 "style",
-                "specialCharacters"
+                "specialCharacters",
             ],
             "shouldNotGroupWhenFull": True,
         },
