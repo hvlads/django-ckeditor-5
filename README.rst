@@ -285,6 +285,30 @@ Additionally you will have to list all available languages in the ckeditor
 config as shown above.
 
 
+Allow file uploading as link:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+By default only images can be uploaded and embedded in the content. To allow
+uploading and embedding files as downloadable links you can add the following
+to your config:
+
+ .. code-block:: python
+
+      CKEDITOR_5_ALLOW_ALL_FILE_TYPES = True
+      CKEDITOR_5_UPLOAD_FILE_TYPES = ['jpeg', 'pdf', 'png'] # optional
+      CKEDITOR_5_CONFIGS = {
+        'default': {
+            'toolbar': ['heading', '|', 'bold', 'italic', 'link',
+                        'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', 'fileUpload' ], # include fileUpload here
+            'language': 'de',
+        },
+
+**Warning**: Uploaded files are not validated and users could upload malicious
+content (e.g. a pdf which actually is an executable). Furthermore allowing file
+uploads disables any validation for the image upload as the backend can't
+distinguish between image and file upload. Exposing the file upload to
+all/untrusted users poses a risk!
+
+
 Installing from GitHub:
 ^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
