@@ -70,7 +70,7 @@ def upload_file(request):
             try:
                 image_verify(request.FILES['upload'])
             except NoImageException as ex:
-                return JsonResponse({"error": {"message": f"{ex}"}})
+                return JsonResponse({"error": {"message": f"{ex}"}}, status=400)
         if form.is_valid():
             url = handle_uploaded_file(request.FILES["upload"])
             return JsonResponse({"url": url})
