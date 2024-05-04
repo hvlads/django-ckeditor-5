@@ -211,6 +211,9 @@ CKEDITOR_5_CONFIGS = {
                 "style",
                 "specialCharacters",
                 "fileUpload",
+                "showBlocks",
+                "selectAll",
+                "findAndReplace"
             ],
             "shouldNotGroupWhenFull": True,
         },
