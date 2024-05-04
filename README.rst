@@ -194,7 +194,12 @@ Includes the following ckeditor5 plugins:
             Style,
             HorizontalLine,
             LinkImage,
-            HtmlEmbed
+            HtmlEmbed,
+            FullPage,
+            SpecialCharacters,
+            ShowBlocks,
+            SelectAll,
+            FindAndReplace
 
 
 Examples
