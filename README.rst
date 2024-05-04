@@ -129,8 +129,29 @@ Quick start
        # [ ... ]
        
        urlpatterns += [ 
-           path("ckeditor5/", include('django_ckeditor_5.urls'), name="ck_editor_5_upload_file"),
+           path("ckeditor5/", include('django_ckeditor_5.urls')),
        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+  Alternatively, you can use your own logic for file uploads. To do this, add the following to your `settings.py` file:
+
+  .. code-block:: python
+
+    # Define a constant in settings.py to specify the custom upload file view
+    CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = "custom_upload_file"
+
+  Then, in your `urls.py`, include the custom upload URL pattern:
+
+  .. code-block:: python
+
+     path("upload/", custom_upload_function, name="custom_upload_file"),
+
+This allows users to customize the upload file logic by specifying their own view function and URL pattern.
+
+
+
+
+
+
     
     
 4. Add to your `project/models.py`:
