@@ -82,7 +82,9 @@ class CKEditor5Widget(forms.Widget):
 
         context["config"] = self.config
         context["script_id"] = "{}{}".format(attrs["id"], "_script")
-        context["upload_url"] = reverse(getattr(settings, "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME", "ck_editor_5_upload_file"))
+        context["upload_url"] = reverse(
+            getattr(settings, "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME", "ck_editor_5_upload_file"),
+        )
         context["upload_file_types"] = json.dumps(getattr(
             settings,
             "CKEDITOR_5_UPLOAD_FILE_TYPES",
