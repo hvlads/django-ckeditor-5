@@ -213,7 +213,7 @@ CKEDITOR_5_CONFIGS = {
                 "fileUpload",
                 "showBlocks",
                 "selectAll",
-                "findAndReplace"
+                "findAndReplace",
             ],
             "shouldNotGroupWhenFull": True,
         },
