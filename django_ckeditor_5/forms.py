@@ -10,7 +10,7 @@ class UploadFileForm(forms.Form):
                 getattr(
                     settings,
                     "CKEDITOR_5_UPLOAD_FILE_TYPES",
-                    ["jpeg", "png", "gif", "bmp", "webp", "tiff"],
+                    ["jpg", "jpeg", "png", "gif", "bmp", "webp", "tiff"],
                 ),
             ),
         ],

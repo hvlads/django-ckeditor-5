@@ -13,7 +13,6 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from articles.views import custom_upload_file
 from django.conf import settings
 from django.conf.urls.static import serve
 from django.contrib import admin
@@ -21,8 +20,8 @@ from django.urls import include, path, re_path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("upload/", custom_upload_file, name="custom_upload_file"),
     path("", include("articles.urls")),
+    path("ckeditor5/", include("django_ckeditor_5.urls")),
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]

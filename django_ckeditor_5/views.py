@@ -1,6 +1,8 @@
 from django import get_version
-from django.http import Http404
 from django.utils.module_loading import import_string
+from django.views.decorators.http import require_POST
+
+from .permissions import check_upload_permission
 
 if get_version() >= "4.0":
     from django.utils.translation import gettext_lazy as _
@@ -40,8 +42,10 @@ def get_storage_class():
             error_msg = f"Invalid default storage class: {default_storage_name}"
             raise ImproperlyConfigured(error_msg)
     else:
-        error_msg = ("Either CKEDITOR_5_FILE_STORAGE, DEFAULT_FILE_STORAGE, "
-                     "or STORAGES['default'] setting is required.")
+        error_msg = (
+            "Either CKEDITOR_5_FILE_STORAGE, DEFAULT_FILE_STORAGE, "
+            "or STORAGES['default'] setting is required."
+        )
         raise ImproperlyConfigured(error_msg)
 
 
@@ -61,17 +65,20 @@ def handle_uploaded_file(f):
     return fs.url(filename)
 
 
+@require_POST
+@check_upload_permission
 def upload_file(request):
-    if request.method == "POST" and request.user.is_staff:
-        form = UploadFileForm(request.POST, request.FILES)
-        allow_all_file_types = getattr(settings, "CKEDITOR_5_ALLOW_ALL_FILE_TYPES", False)
+    form = UploadFileForm(request.POST, request.FILES)
+    allow_all_file_types = getattr(settings, "CKEDITOR_5_ALLOW_ALL_FILE_TYPES", False)
 
-        if not allow_all_file_types:
-            try:
-                image_verify(request.FILES['upload'])
-            except NoImageException as ex:
-                return JsonResponse({"error": {"message": f"{ex}"}}, status=400)
-        if form.is_valid():
-            url = handle_uploaded_file(request.FILES["upload"])
-            return JsonResponse({"url": url})
-    raise Http404(_("Page not found."))
+    if not allow_all_file_types:
+        try:
+            image_verify(request.FILES["upload"])
+        except NoImageException as ex:
+            return JsonResponse({"error": {"message": f"{ex}"}}, status=400)
+
+    if form.is_valid():
+        url = handle_uploaded_file(request.FILES["upload"])
+        return JsonResponse({"url": url})
+
+    return JsonResponse({"error": {"message": _("Invalid form data")}}, status=400)

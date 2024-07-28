@@ -4,7 +4,9 @@ from django.urls import reverse
 
 def test_upload_file(admin_client, file):
     with file as upload:
-        upload_view_name = getattr(settings, "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME", "")
+        upload_view_name = getattr(
+            settings, "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME", "ck_editor_5_upload_file"
+        )
         response = admin_client.post(
             reverse(upload_view_name),
             {"upload": upload},
