@@ -324,5 +324,5 @@ STORAGES = {
     },
 }
 CKEDITOR_5_CUSTOM_CSS = "custom.css"
-CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME = "custom_upload_file"
 CSRF_COOKIE_NAME = "new_csrf_cookie_name"
+CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"
