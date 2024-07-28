@@ -43,6 +43,6 @@ def authenticated_user(db):  # noqa: ARG001
 def staff_user(db):  # noqa: ARG001
     return User.objects.create_user(
         username="staffuser",
-        password="12345",
-        is_staff=True,  # noqa: S106
+        password="12345",  # noqa: S106
+        is_staff=True,
     )
