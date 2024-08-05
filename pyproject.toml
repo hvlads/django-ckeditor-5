@@ -181,5 +181,6 @@ max-statements = 50  # Recommended: 50
 "example/blog/conftest.py" = ["SIM115"]
 "example/blog/manage.py" = ["TRY003"]
 "example/blog/blog/settings.py" = ["N816", "S105"]
+"example/blog/blog/test_settings.py" = ["F403", "I001"]
 "example/blog/tests/*" = ["S101"]
 "example/blog/tests/test_upload_file.py" = ["ARG001"]

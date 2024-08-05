@@ -387,6 +387,17 @@ distinguish between image and file upload. Exposing the file upload to
 all/untrusted users poses a risk!
 
 
+Restrict upload file size:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+You can restrict the maximum size for uploaded images and files by adding
+
+ .. code-block:: python
+
+      CKEDITOR_5_MAX_FILE_SIZE = 5 # Max size in MB
+
+to your config. Default is 0 (allow any file size).
+
+
 Installing from GitHub:
 ^^^^^^^^^^^^^^^^^^^^^^^
   .. code-block:: bash
