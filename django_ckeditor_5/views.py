@@ -81,4 +81,10 @@ def upload_file(request):
         url = handle_uploaded_file(request.FILES["upload"])
         return JsonResponse({"url": url})
 
+    if form.errors["upload"]:
+        return JsonResponse(
+            {"error": {"message": form.errors["upload"][0]}},
+            status=400,
+        )
+
     return JsonResponse({"error": {"message": _("Invalid form data")}}, status=400)
