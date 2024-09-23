@@ -48,7 +48,8 @@
     "@ckeditor/ckeditor5-ui": "^41.3.1",
     "@ckeditor/ckeditor5-upload": "^41.3.1",
     "@ckeditor/ckeditor5-word-count": "^41.3.1",
-    "@liqd/ckeditor5-file-uploader": "github:liqd/ckeditor5-file-uploader#v0.0.3"
+    "@liqd/ckeditor5-file-uploader": "github:liqd/ckeditor5-file-uploader#v0.0.3",
+    "@pikulinpw/ckeditor5-fullscreen": "^1.0.1"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^41.3.1",
