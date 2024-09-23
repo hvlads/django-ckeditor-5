@@ -222,7 +222,8 @@ Includes the following ckeditor5 plugins:
             SpecialCharacters,
             ShowBlocks,
             SelectAll,
-            FindAndReplace
+            FindAndReplace,
+            FullScreen
 
 
 Examples
