@@ -55,7 +55,10 @@ function createEditors(element = document.body) {
             return
         }
         const script_id = `${editorEl.id}_script`;
-        editorEl.nextSibling.remove();
+        // remove next sibling if it is an empty text node
+        if (editorEl.nextSibling.nodeType = Node.TEXT_NODE && editorEl.nextSibling.textContent.trim() === '') {
+          editorEl.nextSibling.remove();
+        }
         const upload_url = element.querySelector(
             `#${script_id}-ck-editor-5-upload-url`
         ).getAttribute('data-upload-url');
