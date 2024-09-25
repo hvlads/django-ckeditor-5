@@ -56,7 +56,7 @@ function createEditors(element = document.body) {
         }
         const script_id = `${editorEl.id}_script`;
         // remove next sibling if it is an empty text node
-        if (editorEl.nextSibling.nodeType = Node.TEXT_NODE && editorEl.nextSibling.textContent.trim() === '') {
+        if (editorEl.nextSibling.nodeType == Node.TEXT_NODE && editorEl.nextSibling.textContent.trim() === '') {
           editorEl.nextSibling.remove();
         }
         const upload_url = element.querySelector(
