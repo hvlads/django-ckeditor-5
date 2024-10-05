@@ -97,7 +97,7 @@ exclude = [
 ignore_missing_imports = true
 install_types = true
 
-[tool.ruff]
+[tool.lint]
 select = [
   "A",      # flake8-builtins
   "AIR",    # Airflow

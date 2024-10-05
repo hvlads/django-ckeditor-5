@@ -48,7 +48,6 @@ import {HtmlEmbed} from "@ckeditor/ckeditor5-html-embed";
 import { FullPage } from '@ckeditor/ckeditor5-html-support';
 import { SpecialCharacters } from '@ckeditor/ckeditor5-special-characters';
 import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-characters';
-import { FileUploader } from '@liqd/ckeditor5-file-uploader';
 import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
 import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
@@ -105,7 +104,6 @@ ClassicEditor.builtinPlugins = [
     FullPage,
     SpecialCharacters,
     SpecialCharactersEssentials,
-    FileUploader,
     ShowBlocks,
     SelectAll,
     FindAndReplace

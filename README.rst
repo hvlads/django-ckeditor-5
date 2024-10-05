@@ -376,26 +376,10 @@ to your config:
       CKEDITOR_5_CONFIGS = {
         'default': {
             'toolbar': ['heading', '|', 'bold', 'italic', 'link',
-                        'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', 'fileUpload' ], # include fileUpload here
+                        'bulletedList', 'numberedList', 'blockQuote', 'imageUpload' ], # include fileUpload here
             'language': 'de',
         },
-
-**Warning**: Uploaded files are not validated and users could upload malicious
-content (e.g. a pdf which actually is an executable). Furthermore allowing file
-uploads disables any validation for the image upload as the backend can't
-distinguish between image and file upload. Exposing the file upload to
-all/untrusted users poses a risk!
-
-
-Restrict upload file size:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can restrict the maximum size for uploaded images and files by adding
-
- .. code-block:: python
-
-      CKEDITOR_5_MAX_FILE_SIZE = 5 # Max size in MB
-
-to your config. Default is 0 (allow any file size).
+      }
 
 
 Installing from GitHub:
