@@ -33,7 +33,12 @@ function getCookie(name) {
  * @returns {array.<HTMLElement>}
  */
 function resolveElementArray(element, query) {
-    return element.matches(query) ? [element] : [...element.querySelectorAll(query)];
+    try {
+        return element.matches(query) ? [element] : [...element.querySelectorAll(query)];
+    } catch (err) {
+        console.warn(err)
+        return [element]
+    }
 }
 
 /**
@@ -153,9 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createEditors();
 
     if (typeof django === "object" && django.jQuery) {
-        django.jQuery(document).on("formset:added", () => {
-            createEditors()
-        });
+        django.jQuery(document).on("formset:added", createEditors);
     }
 
     const observer = new MutationObserver((mutations) => {
