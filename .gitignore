@@ -33,3 +33,4 @@ lint.sh
 venv
 .coverage
 coverage.xml
+.idea/
