@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createEditors();
 
     if (typeof django === "object" && django.jQuery) {
-        django.jQuery(document).on("formset:added", createEditors);
+        django.jQuery(document).on("formset:added", () => {createEditors()});
     }
 
     const observer = new MutationObserver((mutations) => {
