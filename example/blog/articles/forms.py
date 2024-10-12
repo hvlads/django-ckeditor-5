@@ -17,7 +17,11 @@ class CommentForm(forms.ModelForm):
         fields = ("author", "text")
         widgets = {
             "text": CKEditor5Widget(
-                attrs={"class": "django_ckeditor_5", "name": "message", "required": True},
+                attrs={
+                    "class": "django_ckeditor_5",
+                    "name": "message",
+                    "required": True,
+                },
                 config_name="comment",
             ),
         }
