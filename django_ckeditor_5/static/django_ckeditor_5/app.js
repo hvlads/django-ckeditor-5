@@ -99,6 +99,10 @@ function createEditors(element = document.body) {
             editorEl,
             config
         ).then(editor => {
+            const textarea = document.querySelector(`#${editorEl.id}`);
+            editor.model.document.on('change:data', () => {
+                textarea.value = editor.getData();
+            });
             if (editor.plugins.has('WordCount')) {
                 const wordCountPlugin = editor.plugins.get('WordCount');
                 const wordCountWrapper = element.querySelector(`#${script_id}-word-count`);
@@ -156,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createEditors();
 
     if (typeof django === "object" && django.jQuery) {
-        django.jQuery(document).on("formset:added", () => {createEditors()});
+        django.jQuery(document).on("formset:added", () => {createEditors();});
     }
 
     const observer = new MutationObserver((mutations) => {
