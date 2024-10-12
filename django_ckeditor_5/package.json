@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
-    "prod": "webpack --mode production",
+    "prod": "webpack --mode production"
   },
   "author": "",
   "license": "BSD-3-Clause",
@@ -47,7 +47,8 @@
     "@ckeditor/ckeditor5-theme-lark": "^43.2.0",
     "@ckeditor/ckeditor5-ui": "^43.2.0",
     "@ckeditor/ckeditor5-upload": "^43.2.0",
-    "@ckeditor/ckeditor5-word-count": "^43.2.0"
+    "@ckeditor/ckeditor5-word-count": "^43.2.0",
+    "@pikulinpw/ckeditor5-fullscreen": "^1.0.1"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^43.2.0",

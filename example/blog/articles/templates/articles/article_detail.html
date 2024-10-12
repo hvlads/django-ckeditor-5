@@ -21,9 +21,11 @@
             {% endfor %}
         </div>
     </div>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.text }}
-        <button type="submit">Submit comment</button>
-    </form>
+   <form method="POST">
+    {% csrf_token %}
+    <label for="{{ form.author.id_for_label }}">Author</label>
+    {{ form.author }}
+    {{ form.text }}
+    <button type="submit">Submit comment</button>
+</form>
 {% endblock %}
