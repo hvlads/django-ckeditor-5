@@ -210,6 +210,7 @@ CKEDITOR_5_CONFIGS = {
                 "sourceEditing",
                 "style",
                 "specialCharacters",
+                "fileUpload",
                 "showBlocks",
                 "selectAll",
                 "findAndReplace",
