@@ -54,7 +54,7 @@
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^43.2.0",
     "@ckeditor/ckeditor5-dev-translations": "^43.0.0",
-    "@ckeditor/ckeditor5-dev-utils": "^43.0.0",
+    "@ckeditor/ckeditor5-dev-utils": "^44.2.1",
     "@ckeditor/ckeditor5-theme-lark": "^43.2.0",
     "css-loader": "^7.1.2",
     "mini-css-extract-plugin": "^2.9.0",
