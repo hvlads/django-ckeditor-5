@@ -1,4 +1,4 @@
-Django CKEditor 5 
+Django CKEditor 5
 ==================
 
    CKEditor 5 for Django >= 2.0
@@ -7,7 +7,7 @@ Quick start
 -----------
 
  .. code-block:: bash
- 
+
         pip install django-ckeditor-5
 
 1. Add "django_ckeditor_5" to your INSTALLED_APPS in your `project/settings.py` like this:
@@ -57,11 +57,11 @@ Quick start
 
       CKEDITOR_5_CUSTOM_CSS = 'path_to.css' # optional
       CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage" # optional
-      CKEDITOR_5_CONFIGS = { 
+      CKEDITOR_5_CONFIGS = {
         'default': {
             'toolbar': ['heading', '|', 'bold', 'italic', 'link',
                         'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
-    
+
         },
         'extends': {
             'blockToolbar': [
@@ -86,7 +86,7 @@ Quick start
                     'alignRight',
                     'alignCenter',
                 ]
-    
+
             },
             'table': {
                 'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
@@ -122,15 +122,15 @@ Quick start
     CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"  # Possible values: "staff", "authenticated", "any"
 
 3. Include the app URLconf in your `project/urls.py` like this:
- 
+
   .. code-block:: python
 
        from django.conf import settings
        from django.conf.urls.static import static
-       
+
        # [ ... ]
-       
-       urlpatterns += [ 
+
+       urlpatterns += [
            path("ckeditor5/", include('django_ckeditor_5.urls')),
        ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
@@ -154,8 +154,8 @@ This allows users to customize the upload file logic by specifying their own vie
 
 
 
-    
-    
+
+
 4. Add to your `project/models.py`:
 
   .. code-block:: python
@@ -163,12 +163,12 @@ This allows users to customize the upload file logic by specifying their own vie
 
         from django.db import models
         from django_ckeditor_5.fields import CKEditor5Field
-        
-        
+
+
         class Article(models.Model):
             title=models.CharField('Title', max_length=200)
             text=CKEditor5Field('Text', config_name='extends')
-            
+
 
 Includes the following ckeditor5 plugins:
 
@@ -223,7 +223,8 @@ Includes the following ckeditor5 plugins:
             ShowBlocks,
             SelectAll,
             FindAndReplace,
-            FullScreen
+            FullScreen,
+            Kbd
 
 
 Examples
@@ -410,7 +411,7 @@ Installing from GitHub:
     yarn run prod
     cd your_root_project
     python manage.py collectstatic
-    
+
 Example Sharing content styles between front-end and back-end:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 To apply ckeditor5 styling outside of the editor, download content.styles.css from the official ckeditor5 docs and include it as a styleshet within your HTML template. You will need to add the ck-content class to the container of your content for the styles to be applied.
