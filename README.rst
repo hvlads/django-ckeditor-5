@@ -301,6 +301,7 @@ You can change the language via the ``language`` key in the config
                         'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
             'language': 'de',
         },
+      }
 
 ``language`` can be either:
 
