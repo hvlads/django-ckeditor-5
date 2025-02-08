@@ -27,3 +27,17 @@ jobs:
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+  update-changelog:
+    runs-on: ubuntu-latest
+    needs: PyPI
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install release-drafter
+        run: |
+          python -m pip install release-drafter
+      - name: Update changelog
+        run: release-drafter --token ${{ secrets.GITHUB_TOKEN }}
