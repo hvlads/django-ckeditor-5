@@ -8,8 +8,6 @@ from django.test import RequestFactory
 from django_ckeditor_5.fields import CKEditor5Field
 from django_ckeditor_5.forms import UploadFileForm
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "blog"))
-
 
 @pytest.fixture
 def file():
