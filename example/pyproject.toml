@@ -7,19 +7,13 @@ name = "blog"
 version = "0.0.1"
 
 dependencies = [
-    'Django >= 2.2',
+    'Django >= 5.0',
     'Pillow',
     'django-ckeditor-5'
 ]
 
 [tool.setuptools]
 packages = ["blog"]
-
-[project.optional-dependencies]
-dev = [
-    'django-storages==1.12.3',
-    'google-cloud-storage==2.3.0',
-]
 
 [tool.black]
 exclude = '''
@@ -50,6 +44,7 @@ exclude = '''
 # py.test configuration: http://doc.pytest.org/en/latest/customize.html
 norecursedirs = "tests/fixtures *.egg .eggs dist build docs .tox .git __pycache__ venv env migrations"
 DJANGO_SETTINGS_MODULE = "blog.test_settings"
+pythonpath = "."
 filterwarnings = """
   ignore::DeprecationWarning
 """
