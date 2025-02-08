@@ -10,7 +10,19 @@ categories:
     label: 'refactor'
   - title: 'Maintenance'
     label: 'chore'
-  - title: 'Other Changes'
-    label: ''
 changelog-path: CHANGELOG.md
-version-resolver: 'minor'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'minor'
+  default: patch
+template: |
+  ## What's changed
+
+  $CHANGES
