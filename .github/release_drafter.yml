@@ -1,0 +1,16 @@
+name: 'Release v$NEXT_RELEASE'
+tag: 'v$NEXT_RELEASE'
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+categories:
+  - title: 'Features'
+    label: 'feat'
+  - title: 'Bug Fixes'
+    label: 'fix'
+  - title: 'Refactors'
+    label: 'refactor'
+  - title: 'Maintenance'
+    label: 'chore'
+  - title: 'Other Changes'
+    label: ''
+changelog-path: CHANGELOG.md
+version-resolver: 'minor'

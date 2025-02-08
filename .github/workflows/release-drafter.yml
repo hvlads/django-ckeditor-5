@@ -1,15 +1,19 @@
-name: 'Release v$NEXT_RELEASE'
-tag: 'v$NEXT_RELEASE'
-change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
-categories:
-  - title: 'Features'
-    label: 'feat'
-  - title: 'Bug Fixes'
-    label: 'fix'
-  - title: 'Refactors'
-    label: 'refactor'
-  - title: 'Other Changes'
-    label: ''
-changelog-path: CHANGELOG.md
-version-resolver: 'minor'
+name: Release Drafter
 
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  update_release_draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        with:
+          config-name: release_drafter.yml
+          disable-autolabeler: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
