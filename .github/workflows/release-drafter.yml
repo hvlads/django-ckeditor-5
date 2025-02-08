@@ -2,11 +2,8 @@ name: Release Drafter
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-    types: [opened, reopened, synchronize]
-
+    tags:
+      - 'v*'
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
