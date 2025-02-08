@@ -52,7 +52,7 @@ function createEditors(element = document.body) {
             editorEl.id.indexOf('__prefix__') !== -1 ||
             editorEl.getAttribute('data-processed') === '1'
         ) {
-            return
+            return;
         }
         const script_id = `${editorEl.id}_script`;
         // remove next sibling if it is an empty text node
@@ -94,11 +94,12 @@ function createEditors(element = document.body) {
         config.fileUploader = {
             'fileTypes': upload_file_types
         };
-
+        config.licenseKey = 'GPL';
         ClassicEditor.create(
             editorEl,
             config
         ).then(editor => {
+
             const textarea = document.querySelector(`#${editorEl.id}`);
             editor.model.document.on('change:data', () => {
                 textarea.value = editor.getData();
