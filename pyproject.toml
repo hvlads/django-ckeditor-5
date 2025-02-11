@@ -38,7 +38,7 @@ classifiers = [
     ]
 
 dependencies = [
-  'Django >= 5.1.6',
+  'Django >= 2.0',
   'Pillow',
 ]
 
