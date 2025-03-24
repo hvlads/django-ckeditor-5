@@ -59,8 +59,10 @@ Quick start
       CKEDITOR_5_FILE_STORAGE = "path_to_storage.CustomStorage" # optional
       CKEDITOR_5_CONFIGS = {
         'default': {
-            'toolbar': ['heading', '|', 'bold', 'italic', 'link',
-                        'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
+            'toolbar': {
+                'items': ['heading', '|', 'bold', 'italic', 'link',
+                          'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
+                        }
 
         },
         'extends': {
@@ -71,11 +73,15 @@ Quick start
                 '|',
                 'blockQuote',
             ],
-            'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
-            'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
+            'toolbar': {
+                'items': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough',
+                          'code','subscript', 'superscript', 'highlight', '|', 'codeBlock', 'sourceEditing', 'insertImage',
                         'bulletedList', 'numberedList', 'todoList', '|',  'blockQuote', 'imageUpload', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-                        'insertTable',],
+                        'insertTable',
+                        ],
+                'shouldNotGroupWhenFull': true
+            },
             'image': {
                 'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
                             'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',  '|'],
@@ -302,6 +308,7 @@ You can change the language via the ``language`` key in the config
                         'bulletedList', 'numberedList', 'blockQuote', 'imageUpload', ],
             'language': 'de',
         },
+      }
 
 ``language`` can be either:
 

@@ -3,7 +3,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.test import override_settings
 from django.utils.module_loading import import_string
 
-from django_ckeditor_5.views import get_storage_class
+from django_ckeditor_5.storage_utils import get_storage_class
 
 
 @override_settings(
