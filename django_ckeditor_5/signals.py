@@ -23,7 +23,7 @@ def extract_image_paths(html_content):
     """
     if not html_content:
         return []
-    return re.findall(r'<img[^>]+src=["\'](.*?)["\']', html_content)
+    return re.findall(r'<img[^>]*\ssrc=["\']([^"\']+)["\']', html_content)
 
 
 def delete_images(storage, image_paths):
