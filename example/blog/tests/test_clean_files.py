@@ -25,7 +25,8 @@ def test_cleanup_ckeditor_images_on_delete(file, admin_client):
         title="test", text=f"<img src='{response.json()['url']}'>"
     )
     images = extract_image_paths(article.text)
-    storage = get_storage_class()
+    storage_class = get_storage_class()
+    storage = storage_class()
     for image in images:
         f_url = os.path.join(storage.location, image)
         file_name = os.path.basename(f_url)
