@@ -46,7 +46,7 @@ def cleanup_ckeditor_images_on_delete(sender, instance, **kwargs):
     try:
         storage_class = get_storage_class()
         storage = storage_class()
-        
+
         if not storage:
             return
 
