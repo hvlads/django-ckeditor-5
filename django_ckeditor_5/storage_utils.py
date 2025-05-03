@@ -6,7 +6,7 @@ from django.utils.module_loading import import_string
 from django_ckeditor_5.exceptions import NoImageException
 
 
-def get_storage_class():
+def get_django_storage_class():
     storage_setting = getattr(settings, "CKEDITOR_5_FILE_STORAGE", None)
     default_storage_setting = getattr(settings, "DEFAULT_FILE_STORAGE", None)
     storages_setting = getattr(settings, "STORAGES", {})
@@ -42,7 +42,7 @@ def image_verify(f):
 
 
 def handle_uploaded_file(f):
-    storage = get_storage_class()
+    storage = get_django_storage_class()
     fs = storage()
     filename = fs.save(f.name, f)
     return fs.url(filename)
