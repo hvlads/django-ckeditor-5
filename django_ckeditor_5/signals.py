@@ -23,7 +23,7 @@ def extract_image_paths(html_content):
     """
     if not html_content:
         return []
-    return re.findall(r'<img[^>]+src=["\'](.*?)["\']', html_content)
+    return re.findall(r'<img[^>]*\ssrc=["\']([^"\']+)["\']', html_content)
 
 
 def delete_images(storage, image_paths):
@@ -44,7 +44,9 @@ def cleanup_ckeditor_images_on_delete(sender, instance, **kwargs):
     If an error occurs, it is logged, but the deletion process continues.
     """
     try:
-        storage = get_storage_class()
+        storage_class = get_storage_class()
+        storage = storage_class()
+
         if not storage:
             return
 
