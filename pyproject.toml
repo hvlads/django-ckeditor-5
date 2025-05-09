@@ -9,7 +9,7 @@ keywords = ["CKEditor", "CKEditor5", "Django"]
 license = {text = "BSD-3-Clause"}
 readme = "README.rst"
 requires-python = ">=3.7"
-version = "0.2.17"
+version = "0.2.18"
 
 authors = [
     {"name" = "Vladislav Khoboko", "email" = "vladislah@gmail.com"},
