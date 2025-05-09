@@ -80,7 +80,7 @@ Quick start
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
                         'insertTable',
                         ],
-                'shouldNotGroupWhenFull': true
+                'shouldNotGroupWhenFull': 'true'
             },
             'image': {
                 'toolbar': ['imageTextAlternative', '|', 'imageStyle:alignLeft',
@@ -172,8 +172,8 @@ This allows users to customize the upload file logic by specifying their own vie
         
         
         class Article(models.Model):
-            title=models.CharField('Title', max_length=200)
-            text=CKEditor5Field('Text', config_name='extends')
+            title = models.CharField('Title', max_length=200)
+            text = CKEditor5Field('Text', config_name='extends')
             
 
 Includes the following ckeditor5 plugins:
