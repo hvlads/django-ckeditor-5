@@ -26,10 +26,10 @@ function getCookie(name) {
 /**
  * Checks whether the element or its children match the query and returns
  * an array with the matches.
- * 
+ *
  * @param {!HTMLElement} element
  * @param {!string} query
- * 
+ *
  * @returns {array.<HTMLElement>}
  */
 function resolveElementArray(element, query) {
@@ -39,9 +39,9 @@ function resolveElementArray(element, query) {
 /**
  * This function initializes the CKEditor inputs within an optional element and
  * assigns properties necessary for the correct operation
- * 
+ *
  * @param {HTMLElement} [element=document.body] - The element to search for elements
- * 
+ *
  * @returns {void}
  */
 function createEditors(element = document.body) {
@@ -80,6 +80,12 @@ function createEditors(element = document.body) {
                 if (match) {
                    var regex = new RegExp(match[1], match[2]);
                    return regex;
+                }
+                if (value.toString().startsWith('-CALLBACK-:')) {
+                   var callbackName = value.toString().split(':')[1]
+                   // callback must be installed as a global function first
+                   var callback = window[callbackName]
+                   return callback;
                 }
                 return value;
             }
@@ -126,10 +132,10 @@ function createEditors(element = document.body) {
  * This function filters the list of mutations only by added elements, thus
  * eliminates the occurrence of text nodes and tags where it does not make sense
  * to try to use with `QuerySelectorAll()` and `matches()` functions.
- * 
+ *
  * @param {MutationRecord} recordList - It is the object inside the array
  * passed to the callback of a MutationObserver.
- * 
+ *
  * @returns {Array} Array containing filtered nodes.
  */
 function getAddedNodes(recordList) {
