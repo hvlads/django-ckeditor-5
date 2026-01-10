@@ -20,6 +20,11 @@ def ckeditor5_field():
 
 
 @pytest.fixture
+def ckeditor5_blank_field():
+    return CKEditor5Field(blank=True)
+
+
+@pytest.fixture
 def upload_file_form():
     return UploadFileForm()
 
