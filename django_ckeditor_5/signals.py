@@ -86,29 +86,33 @@ def cleanup_unused_ckeditor_images_on_update(sender, instance, **kwargs):
     Removes unused images when an object is updated.
     If any unexpected error occurs, it will be logged, but the deletion process won't break the update.
     """
-    if not any(isinstance(f, CKEditor5Field) for f in instance._meta.fields):
+    ckeditor_fields = [
+        f for f in instance._meta.fields if isinstance(f, CKEditor5Field)
+    ]
+    if not ckeditor_fields:
+        return
+    if instance._state.adding or instance.pk is None:
         return
     try:
         storage = get_safe_storage()
         if not storage:
             return
 
-        for field in instance._meta.fields:
-            if isinstance(field, CKEditor5Field):
-                try:
-                    old_instance = sender.objects.get(pk=instance.pk)
-                    old_images = set(
-                        extract_image_paths(getattr(old_instance, field.name, ""))
-                    )
-                except sender.DoesNotExist:
-                    old_images = set()
+        try:
+            old_instance = sender.objects.get(pk=instance.pk)
+        except sender.DoesNotExist:
+            return
 
-                new_images = set(extract_image_paths(getattr(instance, field.name, "")))
-                unused_images = old_images - new_images
+        for field in ckeditor_fields:
+            old_images = set(
+                extract_image_paths(getattr(old_instance, field.name, ""))
+            )
+            new_images = set(extract_image_paths(getattr(instance, field.name, "")))
+            unused_images = old_images - new_images
 
-                try:
-                    delete_images(storage, unused_images)
-                except Exception as e:
-                    logger.warning(f"Failed to delete unused images: {e}")
+            try:
+                delete_images(storage, unused_images)
+            except Exception as e:
+                logger.warning(f"Failed to delete unused images: {e}")
     except Exception as e:
         logger.error(f"Error in cleanup_unused_ckeditor_images_on_update: {e}")
