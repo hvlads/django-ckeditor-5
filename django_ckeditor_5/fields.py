@@ -1,3 +1,6 @@
+import html
+import re
+
 from django.db import models
 
 from .widgets import CKEditor5Widget
@@ -19,3 +22,22 @@ class CKEditor5Field(models.Field):
                 **kwargs,
             },
         )
+
+    @staticmethod
+    def _is_empty_html(value):
+        """Check if HTML content is effectively empty (e.g. '<p>&nbsp;</p>')."""
+        if not value:
+            return True
+        if re.search(
+            r"<(img|video|audio|iframe|embed|object|source)\b", value, re.IGNORECASE
+        ):
+            return False
+        text = html.unescape(value)
+        text = re.sub(r"<[^>]+>", "", text)
+        return not text.strip()
+
+    def get_prep_value(self, value):
+        value = super().get_prep_value(value)
+        if self.blank and value and self._is_empty_html(value):
+            return ""
+        return value
