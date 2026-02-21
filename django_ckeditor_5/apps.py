@@ -7,5 +7,5 @@ class DjangoCkeditor5Config(AppConfig):
 
     def ready(self):
         from django.conf import settings
-        if getattr(settings, "CKEDITOR_5_IMAGE_CLEANUP", True):
+        if getattr(settings, "CKEDITOR_5_IMAGE_CLEANUP", False):
             from . import signals  # noqa: F401

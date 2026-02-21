@@ -1,4 +1,4 @@
-Django CKEditor 5 
+/Django CKEditor 5
 ==================
 
    CKEditor 5 for Django >= 2.0
@@ -438,17 +438,17 @@ all/untrusted users poses a risk!
 
 Automatic image cleanup:
 ^^^^^^^^^^^^^^^^^^^^^^^^
-By default, when an object with a ``CKEditor5Field`` is updated or deleted,
-images that are no longer referenced in the content are automatically removed
-from storage. This requires an extra ``SELECT`` query on every update to
-compare old and new image references.
+When an object with a ``CKEditor5Field`` is updated or deleted, images that
+are no longer referenced in the content can be automatically removed from
+storage. This requires an extra ``SELECT`` query on every update to compare
+old and new image references.
 
-To disable this behaviour (e.g. for performance or if you manage file cleanup
-yourself), add the following to your ``settings.py``:
+This feature is **disabled by default**. To enable it, add the following to
+your ``settings.py``:
 
  .. code-block:: python
 
-      CKEDITOR_5_IMAGE_CLEANUP = False
+      CKEDITOR_5_IMAGE_CLEANUP = True
 
 
 Restrict upload file size:
