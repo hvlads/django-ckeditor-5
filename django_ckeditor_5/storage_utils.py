@@ -10,8 +10,14 @@ def get_django_storage():
     storage_setting = getattr(settings, "CKEDITOR_5_FILE_STORAGE", None)
     if storage_setting:
         return import_string(storage_setting)()
-    else:
-        return default_storage
+
+    storages = getattr(settings, "STORAGES", {})
+    default_config = storages.get("default", {})
+    if default_config.get("OPTIONS"):
+        backend = default_config["BACKEND"]
+        return import_string(backend)(**default_config["OPTIONS"])
+
+    return default_storage
 
 
 def image_verify(f):
