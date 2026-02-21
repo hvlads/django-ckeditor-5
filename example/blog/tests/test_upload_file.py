@@ -2,6 +2,7 @@ import os
 
 from django.conf import settings
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.test import override_settings
 from django.urls import reverse
 
 
@@ -56,6 +57,22 @@ def test_upload_file_forbbiden_file_typ(admin_client):
     error = response_data["error"]
     assert "message" in error
     assert error["message"] == (
-        "File extension “pdf” is not allowed. Allowed extensions are: jpg, jpeg, png, gif, "
+        "File extension \u201cpdf\u201d is not allowed. Allowed extensions are: jpg, jpeg, png, gif, "
         "bmp, webp, tiff."
     )
+
+
+@override_settings(CSRF_COOKIE_HTTPONLY=True)
+def test_upload_file_csrf_httponly(admin_client, file):
+    with file as upload:
+        upload_view_name = getattr(
+            settings,
+            "CK_EDITOR_5_UPLOAD_FILE_VIEW_NAME",
+            "ck_editor_5_upload_file",
+        )
+        response = admin_client.post(
+            reverse(upload_view_name),
+            {"upload": upload},
+        )
+    assert response.status_code == 200
+    assert "url" in response.json()

@@ -23,6 +23,14 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function getCSRFToken(cookieName) {
+    let token = getCookie(cookieName);
+    if (!token) {
+        token = document.querySelector('input[name=csrfmiddlewaretoken]')?.value;
+    }
+    return token;
+}
+
 /**
  * Checks whether the element or its children match the query and returns
  * an array with the matches.
@@ -87,7 +95,7 @@ function createEditors(element = document.body) {
         config.simpleUpload = {
             'uploadUrl': upload_url,
             'headers': {
-                'X-CSRFToken': getCookie(csrf_cookie_name),
+                'X-CSRFToken': getCSRFToken(csrf_cookie_name),
             },
         };
 
@@ -110,7 +118,7 @@ function createEditors(element = document.body) {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
-                                'X-CSRFToken': getCookie(csrf_cookie_name),
+                                'X-CSRFToken': getCSRFToken(csrf_cookie_name),
                             },
                             body: JSON.stringify({
                                 id: editorEl.id,
