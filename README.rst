@@ -1,5 +1,21 @@
-/Django CKEditor 5
+Django CKEditor 5
 ==================
+
+.. image:: https://img.shields.io/pypi/v/django-ckeditor-5.svg
+   :target: https://pypi.org/project/django-ckeditor-5/
+   :alt: PyPI version
+
+.. image:: https://img.shields.io/pypi/dm/django-ckeditor-5.svg
+   :target: https://pypi.org/project/django-ckeditor-5/
+   :alt: PyPI downloads
+
+.. image:: https://img.shields.io/pypi/pyversions/django-ckeditor-5.svg
+   :target: https://pypi.org/project/django-ckeditor-5/
+   :alt: Python versions
+
+.. image:: https://img.shields.io/github/license/hvlads/django-ckeditor-5.svg
+   :target: https://github.com/hvlads/django-ckeditor-5/blob/master/LICENSE
+   :alt: License
 
    CKEditor 5 for Django >= 2.0
 
