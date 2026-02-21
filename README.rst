@@ -373,6 +373,45 @@ or by registering a callback
     window.ckeditorUnregisterCallback("<id of your field>");
 
 
+Using JS callbacks in the config:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Some CKEditor 5 plugins (e.g. Mention) require JavaScript functions in the config.
+Since the config is passed as JSON, you can use the ``callback:`` prefix to reference
+a function defined on ``window``.
+
+In your ``settings.py``:
+
+  .. code-block:: python
+
+      CKEDITOR_5_CONFIGS = {
+          'default': {
+              'toolbar': ['heading', '|', 'bold', 'italic'],
+              'mention': {
+                  'feeds': [{
+                      'marker': '@',
+                      'feed': 'callback:fetchMentions',
+                      'minimumCharacters': 1,
+                  }],
+              },
+          },
+      }
+
+In your template (loaded before CKEditor):
+
+  .. code-block:: html
+
+      <script>
+          window.fetchMentions = function(queryText) {
+              return fetch('/api/mentions/?q=' + queryText)
+                  .then(function(res) { return res.json(); });
+          };
+      </script>
+
+The JSON reviver detects any string value starting with ``callback:`` and replaces
+it with the corresponding ``window`` function. If the function is not found, the
+original string value is kept as-is.
+
+
 Allow file uploading as link:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 By default only images can be uploaded and embedded in the content. To allow

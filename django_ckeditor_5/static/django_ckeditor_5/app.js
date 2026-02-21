@@ -89,6 +89,13 @@ function createEditors(element = document.body) {
                    var regex = new RegExp(match[1], match[2]);
                    return regex;
                 }
+                if (typeof value === 'string' && value.startsWith('callback:')) {
+                    var callbackName = value.substring(9);
+                    var callback = window[callbackName];
+                    if (typeof callback === 'function') {
+                        return callback;
+                    }
+                }
                 return value;
             }
         );
