@@ -158,6 +158,9 @@ function createEditors(element = document.body) {
                 wordCountWrapper.innerHTML = '';
                 wordCountWrapper.appendChild(wordCountPlugin.wordCountContainer);
             }
+            if (editorEl.hasAttribute('disabled')) {
+                editor.enableReadOnlyMode('django-ckeditor-5');
+            }
             editors[editorEl.id] = editor;
             if (callbacks[editorEl.id]) {
                     callbacks[editorEl.id](editor);
