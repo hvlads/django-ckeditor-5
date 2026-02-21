@@ -104,9 +104,7 @@ def cleanup_unused_ckeditor_images_on_update(sender, instance, **kwargs):
             return
 
         for field in ckeditor_fields:
-            old_images = set(
-                extract_image_paths(getattr(old_instance, field.name, ""))
-            )
+            old_images = set(extract_image_paths(getattr(old_instance, field.name, "")))
             new_images = set(extract_image_paths(getattr(instance, field.name, "")))
             unused_images = old_images - new_images
 
