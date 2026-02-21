@@ -1,32 +1,40 @@
-import pytest
-from django.core.exceptions import ImproperlyConfigured
+from django.core.files.storage import FileSystemStorage, DefaultStorage
 from django.test import override_settings
-from django.utils.module_loading import import_string
 
-from django_ckeditor_5.storage_utils import get_django_storage_class
+from articles.storage import CustomStorage
+from django_ckeditor_5.storage_utils import get_django_storage
 
 
 @override_settings(
     CKEDITOR_5_FILE_STORAGE="articles.storage.CustomStorage",
-    DEFAULT_FILE_STORAGE="django.core.files.storage.FileSystemStorage",
-    STORAGES={"default": {"BACKEND": "django.core.files.storage.FileSystemStorage"}},
 )
-def test_get_storage_class(settings):
-    # Case 1: CKEDITOR_5_FILE_STORAGE is defined
-    storage_class = get_django_storage_class()
-    assert storage_class == import_string(settings.CKEDITOR_5_FILE_STORAGE)
+def test_get_storage_custom(settings):
+    # CKEDITOR_5_FILE_STORAGE is defined
+    storage = get_django_storage()
+    assert isinstance(storage, CustomStorage)
 
-    # Case 2: DEFAULT_FILE_STORAGE is defined
-    delattr(settings, "CKEDITOR_5_FILE_STORAGE")
-    storage_class = get_django_storage_class()
-    assert storage_class == import_string(settings.DEFAULT_FILE_STORAGE)
 
-    # Case 3: STORAGES['default'] is defined
-    delattr(settings, "DEFAULT_FILE_STORAGE")
-    storage_class = get_django_storage_class()
-    assert storage_class == import_string(settings.STORAGES["default"]["BACKEND"])
+@override_settings(
+    CKEDITOR_5_FILE_STORAGE="",
+    STORAGES={
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+            "OPTIONS": {
+                "location": "custom_location",
+            },
+        }
+    },
+)
+def test_storage_default_options():
+    # Use the default storage with options as defined django
+    storage = get_django_storage()
+    assert isinstance(storage, FileSystemStorage)
+    assert storage.base_location == "custom_location"
 
-    # Case 4: None of the required settings is defined
-    delattr(settings, "STORAGES")
-    with pytest.raises(ImproperlyConfigured):
-        get_django_storage_class()
+
+@override_settings()
+def test_storage_default_not_specified(settings):
+    # Use the default storage that django sets when nothing is configured
+    del settings.STORAGES
+    storage = get_django_storage()
+    assert isinstance(storage, DefaultStorage)

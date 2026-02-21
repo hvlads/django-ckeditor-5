@@ -5,7 +5,7 @@ from django.db.models.signals import pre_delete, pre_save
 from django.dispatch import receiver
 
 from django_ckeditor_5.fields import CKEditor5Field
-from django_ckeditor_5.storage_utils import get_django_storage_class
+from django_ckeditor_5.storage_utils import get_django_storage
 
 import logging
 
@@ -45,8 +45,7 @@ def delete_images(storage, image_paths):
 def get_safe_storage():
     """Safely returns a storage instance based on Django settings."""
     try:
-        storage_class = get_django_storage_class()
-        return storage_class()
+        return get_django_storage()
     except Exception as e:
         logger.error(f"Could not initialize storage class: {e}")
         return None
