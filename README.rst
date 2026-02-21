@@ -1,4 +1,4 @@
-Django CKEditor 5 
+/Django CKEditor 5
 ==================
 
    CKEditor 5 for Django >= 2.0
@@ -434,6 +434,21 @@ content (e.g. a pdf which actually is an executable). Furthermore allowing file
 uploads disables any validation for the image upload as the backend can't
 distinguish between image and file upload. Exposing the file upload to
 all/untrusted users poses a risk!
+
+
+Automatic image cleanup:
+^^^^^^^^^^^^^^^^^^^^^^^^
+When an object with a ``CKEditor5Field`` is updated or deleted, images that
+are no longer referenced in the content can be automatically removed from
+storage. This requires an extra ``SELECT`` query on every update to compare
+old and new image references.
+
+This feature is **disabled by default**. To enable it, add the following to
+your ``settings.py``:
+
+ .. code-block:: python
+
+      CKEDITOR_5_IMAGE_CLEANUP = True
 
 
 Restrict upload file size:
