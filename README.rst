@@ -436,6 +436,21 @@ distinguish between image and file upload. Exposing the file upload to
 all/untrusted users poses a risk!
 
 
+Automatic image cleanup:
+^^^^^^^^^^^^^^^^^^^^^^^^
+By default, when an object with a ``CKEditor5Field`` is updated or deleted,
+images that are no longer referenced in the content are automatically removed
+from storage. This requires an extra ``SELECT`` query on every update to
+compare old and new image references.
+
+To disable this behaviour (e.g. for performance or if you manage file cleanup
+yourself), add the following to your ``settings.py``:
+
+ .. code-block:: python
+
+      CKEDITOR_5_IMAGE_CLEANUP = False
+
+
 Restrict upload file size:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 You can restrict the maximum size for uploaded images and files by adding

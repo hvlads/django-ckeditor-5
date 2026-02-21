@@ -6,4 +6,6 @@ class DjangoCkeditor5Config(AppConfig):
     verbose_name = "Django CKEditor 5"
 
     def ready(self):
-        from . import signals  # noqa: F401
+        from django.conf import settings
+        if getattr(settings, "CKEDITOR_5_IMAGE_CLEANUP", True):
+            from . import signals  # noqa: F401
