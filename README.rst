@@ -248,6 +248,7 @@ Includes the following ckeditor5 plugins:
             ShowBlocks,
             SelectAll,
             FindAndReplace
+            Emoji
 
 
 Examples
