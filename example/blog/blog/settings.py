@@ -213,6 +213,7 @@ CKEDITOR_5_CONFIGS = {
                 "showBlocks",
                 "selectAll",
                 "findAndReplace",
+                "emoji",
             ],
             "shouldNotGroupWhenFull": True,
         },

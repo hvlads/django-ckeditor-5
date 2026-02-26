@@ -54,6 +54,7 @@ import { SpecialCharactersEssentials } from '@ckeditor/ckeditor5-special-charact
 import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
 import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
+import { Emoji } from '@ckeditor/ckeditor5-emoji';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -112,5 +113,6 @@ ClassicEditor.builtinPlugins = [
     SpecialCharactersEssentials,
     ShowBlocks,
     SelectAll,
-    FindAndReplace
+    FindAndReplace,
+    Emoji
 ];

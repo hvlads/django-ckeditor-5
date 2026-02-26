@@ -1,6 +1,6 @@
 {
   "name": "django_ckeditor_5",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "@ckeditor/ckeditor5-block-quote": "^47.5.0",
     "@ckeditor/ckeditor5-code-block": "^47.5.0",
     "@ckeditor/ckeditor5-editor-classic": "^47.5.0",
+    "@ckeditor/ckeditor5-emoji": "^47.5.0",
     "@ckeditor/ckeditor5-enter": "^47.5.0",
     "@ckeditor/ckeditor5-essentials": "^47.5.0",
     "@ckeditor/ckeditor5-find-and-replace": "^47.5.0",
