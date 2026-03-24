@@ -14,6 +14,8 @@
 
 .ck.ck-content.ck-editor__editable {
     min-height: 300px;
+    color: var(--ck-color-text);
+    background: var(--ck-color-base-background, #fff);
 }
 
 .ck h2 {
