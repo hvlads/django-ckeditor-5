@@ -17,6 +17,7 @@
     "@ckeditor/ckeditor5-autosave": "^47.5.0",
     "@ckeditor/ckeditor5-basic-styles": "^47.5.0",
     "@ckeditor/ckeditor5-block-quote": "^47.5.0",
+    "@ckeditor/ckeditor5-clipboard": "^47.5.0",
     "@ckeditor/ckeditor5-code-block": "^47.5.0",
     "@ckeditor/ckeditor5-editor-classic": "^47.5.0",
     "@ckeditor/ckeditor5-emoji": "^47.5.0",
@@ -29,6 +30,7 @@
     "@ckeditor/ckeditor5-horizontal-line": "^47.5.0",
     "@ckeditor/ckeditor5-html-embed": "^47.5.0",
     "@ckeditor/ckeditor5-html-support": "^47.5.0",
+    "@ckeditor/ckeditor5-icons": "^47.5.0",
     "@ckeditor/ckeditor5-image": "^47.5.0",
     "@ckeditor/ckeditor5-indent": "^47.5.0",
     "@ckeditor/ckeditor5-inspector": "^5.0.0",
@@ -50,7 +52,10 @@
     "@ckeditor/ckeditor5-theme-lark": "^47.5.0",
     "@ckeditor/ckeditor5-ui": "^47.5.0",
     "@ckeditor/ckeditor5-upload": "^47.5.0",
-    "@ckeditor/ckeditor5-word-count": "^47.5.0"
+    "@ckeditor/ckeditor5-utils": "^47.5.0",
+    "@ckeditor/ckeditor5-widget": "^47.5.0",
+    "@ckeditor/ckeditor5-word-count": "^47.5.0",
+    "mime": "^3.0.0"
   },
   "devDependencies": {
     "@ckeditor/ckeditor5-core": "^47.5.0",

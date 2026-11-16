@@ -199,6 +199,7 @@ CKEDITOR_5_CONFIGS = {
                 "blockQuote",
                 "linkImage",
                 "insertImage",
+                "fileUpload",
                 "|",
                 "fontSize",
                 "fontFamily",

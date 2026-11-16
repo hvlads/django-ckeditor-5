@@ -55,6 +55,7 @@ import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
 import { SelectAll } from '@ckeditor/ckeditor5-select-all';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { Emoji } from '@ckeditor/ckeditor5-emoji';
+import FileUploader from './plugins/file-uploader';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -114,5 +115,6 @@ ClassicEditor.builtinPlugins = [
     ShowBlocks,
     SelectAll,
     FindAndReplace,
+    FileUploader,
     Emoji
 ];
