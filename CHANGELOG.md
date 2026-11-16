@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+### Fixed
+- `fileUpload` toolbar button (upload any allowed file type as a link) restored: the `@liqd/ckeditor5-file-uploader` plugin was dropped in 0.2.19 because it did not work with CKEditor 47, while the README still documented the button. The plugin is now ported to CKEditor 47 and shipped in `src/plugins/file-uploader/`
+
 ## [0.2.20] - 2026-02-21
 
 ### Added
